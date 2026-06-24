@@ -12,13 +12,13 @@ const groups: Group[] = [
     title: "Frontend",
     icon: Code2,
     accent: "var(--brand-cyan)",
-    skills: ["HTML5 / CSS3", "JavaScript / TypeScript", "React / Next.js", "Tailwind CSS", "Redux / Zustand", "Framer Motion", "Responsive Design"],
+    skills: ["HTML5 / CSS3", "JavaScript / TypeScript", "React / Next.js", "Tailwind CSS", "Redux", "Framer Motion", "Responsive Design"],
   },
   {
     title: "Backend",
     icon: Server,
     accent: "var(--brand-violet)",
-    skills: ["Node.js", "Express.js", "REST APIs", "Authentication", "Drizzle ORM", "Supabase"],
+    skills: ["Node.js", "Express.js", "REST APIs", "JWT Authentication", "Drizzle ORM", "Supabase"],
   },
   {
     title: "Databases",
