@@ -1,10 +1,10 @@
-import { Terminal, Code, ChefHat, Github, ArrowUpRight } from "lucide-react";
+import { Terminal, Code, Github, ArrowUpRight } from "lucide-react";
 
 const platforms = [
   {
     name: "Codeforces",
     handle: "ramkrishna",
-    rating: "731",
+    rating: "944",
     icon: Terminal,
     href: "https://codeforces.com/profile/krishnarammhd",
     color: "var(--brand-cyan)",
@@ -16,14 +16,6 @@ const platforms = [
     icon: Code,
     href: "https://leetcode.com/u/ram_02_Krishna/",
     color: "var(--brand-violet)",
-  },
-  {
-    name: "CodeChef",
-    handle: "ramkrishna",
-    rating: "1385",
-    icon: ChefHat,
-    href: "https://www.codechef.com/users/ram_krishna_02",
-    color: "var(--brand-pink)",
   },
   {
     name: "GitHub",

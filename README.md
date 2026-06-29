@@ -22,7 +22,7 @@ The project features a **Dark Premium** aesthetic, built with a focus on fluid a
 
 ## ✨ Key Features
 - **Dynamic Hero Section:** Features a terminal-style code window and a typewriter effect showcasing various roles.
-- **Coding Ratings:** Integration of competitive programming stats from Codeforces, LeetCode, and CodeChef.
+- **Coding Ratings:** Integration of competitive programming stats from Codeforces and LeetCode.
 - **Immersive Background:** An animated, theme-aware background with floating orbs and grid overlays.
 - **Responsive Design:** Fully optimized for all device sizes with mobile-first layouts.
 - **Interactive Projects:** Hover-card effects and detailed project showcases.
