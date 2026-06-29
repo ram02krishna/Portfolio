@@ -5,7 +5,7 @@ const codeLines = [
   { type: 'keyword', text: 'const', content: ' name = ', string: '"Ram Krishna"', punctuation: ';' },
   { type: 'keyword', text: 'const', content: ' intern = ', string: '"Not yet"', punctuation: ';' },
   { type: 'keyword', text: 'const', content: ' role = ', string: '"Full stack developer"', punctuation: ';' },
-  { type: 'keyword', text: 'const', content: ' ratings = ', object: '{ cf: ', number1: '731', comma1: ', lc: ', number2: '1572', comma2: ', cc: ', number3: '1385', closing: ' }', punctuation: ';' },
+  { type: 'keyword', text: 'const', content: ' ratings = ', object: '{ cf: ', number1: '944', comma1: ', lc: ', number2: '1572', comma2: ', cc: ', number3: '1385', closing: ' }', punctuation: ';' },
   { type: 'comment', text: '// Ready to build something extraordinary.' }
 ];
 

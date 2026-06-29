@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, Mail, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { Reveal } from "@/components/ui/Reveal";
 
 const ROLES = ["Backend Developer", "Full Stack Developer", "Software Developer", "Problem Solver"];
 
@@ -8,6 +10,28 @@ export function Hero() {
   const [idx, setIdx] = useState(0);
   const [text, setText] = useState("");
   const [deleting, setDeleting] = useState(false);
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
+  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    x.set(mouseX / width - 0.5);
+    y.set(mouseY / height - 0.5);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
 
   useEffect(() => {
     const current = ROLES[idx];
@@ -52,8 +76,16 @@ export function Hero() {
         </p>
 
         {/* Terminal-style code window */}
-        <div className="reveal mx-auto mt-10 max-w-2xl text-left">
-          <div className="glass overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-glow)]">
+        <div 
+          className="reveal mx-auto mt-10 max-w-2xl text-left"
+          style={{ perspective: 1000 }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+        >
+          <motion.div 
+            style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+            className="glass overflow-hidden rounded-2xl border border-border shadow-[var(--shadow-glow)]"
+          >
             {/* Title bar */}
             <div className="flex items-center justify-between border-b border-border bg-secondary/50 px-4 py-2.5">
               <div className="flex items-center gap-1.5">
@@ -70,11 +102,11 @@ export function Hero() {
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">01</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>name</span> <span className="text-muted-foreground">=</span> <span style={{ color: "var(--code-string)" }}>"Ram Krishna"</span>;</span></div>
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">02</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>intern</span> <span className="text-muted-foreground">=</span> <span style={{ color: "var(--code-string)" }}>"Not yet"</span>;</span></div>
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">03</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>role</span> <span className="text-muted-foreground">=</span> <span style={{ color: "var(--code-string)" }}>"Backend & Full Stack Developer"</span>;</span></div>
-                <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">04</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>ratings</span> <span className="text-muted-foreground">=</span> {"{ "}<span style={{ color: "var(--code-property)" }}>cf</span>: <span style={{ color: "var(--code-number)" }}>731</span>, <span style={{ color: "var(--code-property)" }}>lc</span>: <span style={{ color: "var(--code-number)" }}>1657</span>, <span style={{ color: "var(--code-property)" }}>cc</span>: <span style={{ color: "var(--code-number)" }}>1385</span> {"}"};</span></div>
+                <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">04</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>ratings</span> <span className="text-muted-foreground">=</span> {"{ "}<span style={{ color: "var(--code-property)" }}>cf</span>: <span style={{ color: "var(--code-number)" }}>944</span>, <span style={{ color: "var(--code-property)" }}>lc</span>: <span style={{ color: "var(--code-number)" }}>1657</span> {"}"};</span></div>
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">05</span><span style={{ color: "var(--code-comment)", fontStyle: "italic" }}>// Ready to build something extraordinary.</span></div>
               </code>
             </pre>
-          </div>
+          </motion.div>
         </div>
 
         <div className="reveal mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
