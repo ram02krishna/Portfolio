@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Code2 } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
   { href: "#about", label: "About" },
@@ -14,6 +15,27 @@ const links = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-30% 0px -70% 0px" }
+    );
+
+    links.forEach((link) => {
+      const el = document.getElementById(link.href.substring(1));
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -29,7 +51,7 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto max-w-6xl px-4">
-        <nav className={`glass flex items-center justify-between rounded-2xl px-4 py-3 transition-all ${scrolled ? "shadow-lg" : ""}`}>
+        <nav className={`bg-background border border-border flex items-center justify-between rounded-2xl px-4 py-3 transition-all ${scrolled ? "shadow-lg" : ""}`}>
           <a href="#hero" className="flex items-center gap-2 font-display text-lg font-bold">
             <span className="flex h-8 w-8 items-center justify-center rounded-lg" style={{ background: "var(--gradient-brand)" }}>
               <Code2 className="h-4 w-4 text-background" />
@@ -42,9 +64,10 @@ export function Navbar() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                  className={`group relative rounded-lg px-3 py-2 text-sm transition-colors ${activeSection === l.href.substring(1) ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
                 >
                   {l.label}
+                  <span className={`absolute inset-x-3 -bottom-1 h-0.5 rounded-full bg-[color:var(--brand-cyan)] transition-transform ${activeSection === l.href.substring(1) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
                 </a>
               </li>
             ))}
@@ -53,7 +76,7 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <button
-              className="glass inline-flex h-10 w-10 items-center justify-center rounded-full md:hidden"
+              className="bg-secondary/50 border border-border inline-flex h-10 w-10 items-center justify-center rounded-full md:hidden"
               onClick={() => setOpen((v) => !v)}
               aria-label="Menu"
             >
@@ -62,23 +85,30 @@ export function Navbar() {
           </div>
         </nav>
 
-        {open && (
-          <div className="glass mt-2 rounded-2xl p-3 md:hidden">
-            <ul className="flex flex-col">
-              {links.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-3 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <AnimatePresence>
+          {open && (
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="bg-background border border-border mt-2 rounded-2xl p-3 md:hidden overflow-hidden origin-top"
+            >
+              <ul className="flex flex-col">
+                {links.map((l) => (
+                  <li key={l.href}>
+                    <a
+                      href={l.href}
+                      onClick={() => setOpen(false)}
+                      className={`block rounded-lg px-3 py-3 text-sm transition-colors hover:bg-secondary ${activeSection === l.href.substring(1) ? "text-foreground bg-secondary/50 font-medium" : "text-muted-foreground hover:text-foreground"}`}
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

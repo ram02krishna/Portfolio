@@ -1,36 +1,37 @@
 import { Github, Linkedin, Twitter, Mail, Download, User } from "lucide-react";
-
-export function About() {
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";export function About() {
   return (
-    <section id="about" className="relative px-4 py-24 sm:py-32">
+    <section id="about" className="relative px-4 py-12 sm:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="reveal mb-12 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]">// about</p>
           <h2 className="mt-2 text-4xl font-bold sm:text-5xl">
-            Solving problems <span className="text-gradient">through code.</span>
+            A little bit <span className="text-gradient">about me.</span>
           </h2>
         </div>
 
         <div className="grid items-center gap-12 md:grid-cols-2">
           {/* Portrait card */}
-          <div className="reveal relative mx-auto w-full max-w-md md:order-last">
+          <div 
+            className="reveal relative mx-auto w-full max-w-md md:order-last group cursor-pointer hover-card-effect rounded-[2rem]"
+          >
             <div
-              className="absolute -inset-4 rounded-[2rem] opacity-40 blur-2xl"
+              className="absolute -inset-4 rounded-[2rem] opacity-40 blur-2xl transition-all duration-500 group-hover:opacity-80 group-hover:blur-3xl"
               style={{ background: "var(--gradient-brand)" }}
             />
             <div
               className="glass gradient-border relative aspect-square overflow-hidden rounded-[2rem]"
               style={{
                 background:
-                  "radial-gradient(circle at 50% 40%, oklch(0.32 0.05 280 / 0.9), oklch(0.16 0.025 265))",
+                  "radial-gradient(circle at 50% 40%, oklch(0.20 0.03 260 / 0.9), oklch(0.12 0.015 260))",
               }}
             >
               {/* Profile Image */}
-              <div className="flex h-full w-full items-center justify-center">
+              <div className="flex h-full w-full items-center justify-center relative z-10 bg-black/20">
                 <img 
                   src="/profile.png" 
                   alt="Ram Krishna" 
-                  className="h-full w-full object-cover opacity-90 transition-all duration-700 ease-out scale-100 hover:scale-105 hover:opacity-100"
+                  className="h-full w-full object-cover transition-all duration-700 ease-out scale-100 group-hover:scale-105"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     e.currentTarget.nextElementSibling?.classList.remove('hidden');
@@ -47,12 +48,12 @@ export function About() {
               <h3 className="text-2xl font-bold text-foreground sm:text-3xl">Open to SDE, Backend & Full Stack Roles</h3>
             </div>
 
-            <div className="space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+            <div className="space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg max-w-2xl">
               <p>
-                I’m a developer driven by the challenge of architecting systems that are as resilient as they are efficient. Over the past year, I’ve focused on building end-to-end solutions—everything from secure authentication and scalable REST APIs to responsive interfaces and optimized database schemas.
+                Hi, I'm Ram Krishna. Over the past year, I've spent my time learning and building full-stack web applications. I really enjoy figuring out how things work under the hood, from setting up databases and APIs to making sure the front-end looks great and runs smoothly.
               </p>
               <p>
-                I find my flow in the complexity of backend logic, always aiming to ensure the systems behind the scenes run perfectly so the user experience feels effortless. I’m now looking for a collaborative team where I can tackle meaningful engineering problems, grow alongside mentors, and ship products that truly matter.
+                Right now, I'm looking for a full-time role as a developer. I'm eager to join a team where I can learn from experienced engineers, write good code, and help build products that people actually use.
               </p>
             </div>
 
@@ -61,7 +62,7 @@ export function About() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium text-background shadow-[var(--shadow-glow-violet)] transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium text-background shadow-[var(--shadow-glow-violet)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-glow)] animate-gradient-flow"
                 style={{ background: "var(--gradient-brand)" }}
               >
                 <Download className="h-4 w-4" />

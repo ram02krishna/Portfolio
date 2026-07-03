@@ -1,5 +1,5 @@
-import { Github, Linkedin, Twitter, Mail, Code2 } from "lucide-react";
-
+import { Mail, Code2 } from "lucide-react";
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 const explore = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
@@ -10,9 +10,9 @@ const explore = [
 ];
 
 const socials = [
-  { icon: Github, href: "https://github.com/ram02krishna", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/ram-krishna-419528287/", label: "LinkedIn" },
-  { icon: Twitter, href: "https://x.com/krishnarammhd", label: "Twitter" },
+  { icon: FaGithub, href: "https://github.com/ram02krishna", label: "GitHub" },
+  { icon: FaLinkedin, href: "https://www.linkedin.com/in/ram-krishna-419528287/", label: "LinkedIn" },
+  { icon: FaXTwitter, href: "https://x.com/krishnarammhd", label: "Twitter" },
   { icon: Mail, href: "mailto:krishnarammhd@gmail.com", label: "Email" },
 ];
 
@@ -77,7 +77,7 @@ export function Footer() {
             </p>
             <a
               href="#contact"
-              className="animate-gradient-flow mt-5 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-background shadow-[var(--shadow-glow-violet)] transition-transform hover:-translate-y-0.5"
+              className="hover-card-effect animate-gradient-flow mt-5 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-background shadow-[var(--shadow-glow-violet)]"
               style={{ background: "var(--gradient-brand)" }}
             >
               Start a Conversation <Mail className="h-4 w-4" />

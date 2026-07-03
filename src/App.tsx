@@ -12,10 +12,8 @@ import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 import { BackToTop } from "@/components/portfolio/BackToTop";
 import { useReveal } from "@/components/portfolio/useReveal";
-import { LoadingScreen } from "@/components/portfolio/LoadingScreen";
 
 function App() {
-  const [loading, setLoading] = useState(true);
   useReveal();
 
   useEffect(() => {
@@ -28,7 +26,6 @@ function App() {
 
   return (
     <div className="relative min-h-screen">
-      {loading && <LoadingScreen onFinished={() => setLoading(false)} />}
       <AnimatedBackground />
       <Navbar />
       <main>

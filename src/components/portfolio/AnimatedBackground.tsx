@@ -89,14 +89,18 @@ export function AnimatedBackground() {
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
       <div className="absolute inset-0 grid-bg" />
       <div
-        className="absolute -top-40 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full blur-3xl opacity-50"
+        className="absolute -left-20 top-1/4 h-[500px] w-[500px] rounded-full blur-3xl opacity-30"
+        style={{ background: "radial-gradient(circle, oklch(0.82 0.16 200 / 0.3), transparent 60%)", animation: "float-orb 20s ease-in-out infinite" }}
+      />
+      <div
+        className="absolute -top-40 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full blur-3xl opacity-40"
         style={{ background: "radial-gradient(circle, oklch(0.78 0.16 200 / 0.45), transparent 60%)", animation: "float-orb 14s ease-in-out infinite" }}
       />
       <div
-        className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full blur-3xl opacity-40"
+        className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full blur-3xl opacity-30"
         style={{ background: "radial-gradient(circle, oklch(0.7 0.22 305 / 0.45), transparent 60%)", animation: "float-orb 18s ease-in-out infinite reverse" }}
       />
-      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
+      <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-60" />
     </div>
   );
 }

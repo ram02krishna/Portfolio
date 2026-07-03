@@ -59,7 +59,7 @@ export function CodingPlatforms() {
   }, []);
 
   return (
-    <section id="platforms" className="relative px-4 py-24 sm:py-32">
+    <section id="platforms" className="relative px-4 py-12 sm:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="reveal mb-12 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]">// competitive</p>
