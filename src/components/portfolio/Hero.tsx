@@ -75,7 +75,7 @@ export function Hero() {
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">01</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>name</span> <span className="text-muted-foreground">=</span> <span style={{ color: "var(--code-string)" }}>"Ram Krishna"</span>;</span></div>
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">02</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>role</span> <span className="text-muted-foreground">=</span> <span style={{ color: "var(--code-string)" }}>"Backend & Full Stack Developer"</span>;</span></div>
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">03</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>status</span> <span className="text-muted-foreground">=</span> <span style={{ color: "var(--code-string)" }}>"Writing code & building projects"</span>;</span></div>
-                <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">04</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>ratings</span> <span className="text-muted-foreground">=</span> {"{ "}<span style={{ color: "var(--code-property)" }}>cf</span>: <span style={{ color: "var(--code-number)" }}>944</span>, <span style={{ color: "var(--code-property)" }}>lc</span>: <span style={{ color: "var(--code-number)" }}>1657</span> {"}"};</span></div>
+                <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">04</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>ratings</span> <span className="text-muted-foreground">=</span> {"{ "}<span style={{ color: "var(--code-property)" }}>codeforces</span>: <span style={{ color: "var(--code-number)" }}>1197</span>, <span style={{ color: "var(--code-property)" }}>leetcode</span>: <span style={{ color: "var(--code-number)" }}>1657</span> {"}"};</span></div>
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">05</span><span style={{ color: "var(--code-comment)", fontStyle: "italic" }}>// Ready to join a great team.</span></div>
               </code>
             </pre>
@@ -83,18 +83,18 @@ export function Hero() {
         </div>
 
         <div className="reveal mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button asChild size="lg" className="group relative animate-gradient-flow rounded-full px-8 text-base shadow-[var(--shadow-glow)] overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-glow-violet)]" style={{ background: "var(--gradient-brand)", color: "var(--primary-foreground)" }}>
+          <Button asChild size="lg" className="group relative animate-gradient-flow rounded-full px-8 text-base shadow-[var(--shadow-glow)] overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-[var(--shadow-glow-violet)]" style={{ background: "var(--gradient-brand)", color: "var(--primary-foreground)" }}>
             <a href="#projects">
               <div className="absolute inset-0 bg-white/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100 mix-blend-overlay" />
-              <span className="relative flex items-center">
-                View Projects
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1.5" />
+              <span className="relative z-10 flex items-center font-medium">
+                View My Work
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
             </a>
           </Button>
-          <Button asChild size="lg" variant="outline" className="glass group rounded-full border-border/50 bg-secondary/30 px-8 text-base transition-all duration-300 hover:scale-105 hover:bg-secondary/50 hover:border-[color:var(--brand-cyan)]/50 hover:shadow-[var(--shadow-glow)]">
+          <Button asChild size="lg" variant="outline" className="glass rounded-full border-border/50 bg-secondary/30 px-8 text-base transition-all duration-300 hover:scale-[1.03] hover:bg-secondary/50 hover:border-[color:var(--brand-cyan)]/40 hover:shadow-[var(--shadow-glow)]">
             <a href="#contact">
-              <Mail className="mr-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:text-[color:var(--brand-cyan)]" /> 
+              <Mail className="mr-2 h-4 w-4 transition-colors duration-300 hover:text-[color:var(--brand-cyan)]" /> 
               Contact Me
             </a>
           </Button>
@@ -103,7 +103,7 @@ export function Hero() {
         <a
           href="#about"
           aria-label="Scroll down"
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground/60 hover:text-foreground"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground/60"
         >
           <div className="flex h-10 w-6 items-start justify-center rounded-full border border-border p-1">
             <span className="h-2 w-1 animate-bounce rounded-full bg-[color:var(--brand-cyan)]" />

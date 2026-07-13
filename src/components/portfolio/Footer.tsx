@@ -44,7 +44,7 @@ export function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="wave-icon flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 text-foreground transition-colors hover:text-[color:var(--brand-violet)] hover:border-[color:var(--brand-violet)]/50"
+                  className="wave-icon flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 text-foreground transition-all duration-200 hover:text-[color:var(--brand-violet)] hover:border-[color:var(--brand-violet)]/50 hover:-translate-y-0.5"
                 >
                   <s.icon className="h-4 w-4" />
                 </a>
@@ -60,9 +60,9 @@ export function Footer() {
                 <a
                   key={l.label}
                   href={l.href}
-                  className="group flex items-center text-muted-foreground transition-all hover:text-[color:var(--brand-cyan)]"
+                  className="group flex items-center text-muted-foreground transition-all duration-200 hover:text-[color:var(--brand-cyan)]"
                 >
-                  <span className="mr-2 h-px w-0 bg-[color:var(--brand-cyan)] transition-all group-hover:w-3" />
+                  <span className="mr-2 h-px w-0 bg-[color:var(--brand-cyan)] transition-all duration-200 group-hover:w-3" />
                   {l.label}
                 </a>
               ))}
@@ -77,7 +77,7 @@ export function Footer() {
             </p>
             <a
               href="#contact"
-              className="hover-card-effect animate-gradient-flow mt-5 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-background shadow-[var(--shadow-glow-violet)]"
+              className="animate-gradient-flow mt-5 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-background shadow-[var(--shadow-glow-violet)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]"
               style={{ background: "var(--gradient-brand)" }}
             >
               Start a Conversation <Mail className="h-4 w-4" />

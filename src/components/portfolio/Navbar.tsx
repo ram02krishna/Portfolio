@@ -64,10 +64,10 @@ export function Navbar() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className={`group relative rounded-lg px-3 py-2 text-sm transition-colors ${activeSection === l.href.substring(1) ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
+                  className={`group relative rounded-lg px-3 py-2 text-sm transition-colors duration-200 ${activeSection === l.href.substring(1) ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
                 >
                   {l.label}
-                  <span className={`absolute inset-x-3 -bottom-1 h-0.5 rounded-full bg-[color:var(--brand-cyan)] transition-transform ${activeSection === l.href.substring(1) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
+                  <span className={`absolute inset-x-3 -bottom-1 h-0.5 rounded-full bg-[color:var(--brand-cyan)] transition-transform duration-200 ${activeSection === l.href.substring(1) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
                 </a>
               </li>
             ))}
@@ -99,7 +99,7 @@ export function Navbar() {
                     <a
                       href={l.href}
                       onClick={() => setOpen(false)}
-                      className={`block rounded-lg px-3 py-3 text-sm transition-colors hover:bg-secondary ${activeSection === l.href.substring(1) ? "text-foreground bg-secondary/50 font-medium" : "text-muted-foreground hover:text-foreground"}`}
+                      className={`block rounded-lg px-3 py-3 text-sm transition-colors duration-200 ${activeSection === l.href.substring(1) ? "text-foreground bg-secondary/50 font-medium" : "text-muted-foreground hover:text-foreground hover:bg-secondary/30"}`}
                     >
                       {l.label}
                     </a>

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Moon, Sun } from "lucide-react";
 
 export function ThemeToggle() {
   const [light, setLight] = useState(false);
@@ -42,7 +41,7 @@ export function ThemeToggle() {
           ],
         },
         {
-          duration: 600,
+          duration: 400,
           easing: "cubic-bezier(0.4, 0, 0.2, 1)",
           pseudoElement: "::view-transition-new(root)",
         }
@@ -60,11 +59,56 @@ export function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label="Toggle theme"
-      className="glass inline-flex h-10 w-10 items-center justify-center rounded-full transition-transform hover:scale-110 active:scale-95"
+      className="glass inline-flex h-10 w-10 items-center justify-center rounded-full transition-transform duration-200 hover:scale-105 active:scale-95"
     >
-      <div className="relative h-4 w-4">
-        <Sun className={`absolute inset-0 h-4 w-4 transition-all duration-500 ${light ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-0 opacity-0"}`} />
-        <Moon className={`absolute inset-0 h-4 w-4 transition-all duration-500 ${light ? "rotate-90 scale-0 opacity-0" : "rotate-0 scale-100 opacity-100"}`} />
+      <div className="relative h-5 w-5">
+        {/* Sun icon — custom SVG with rays that animate */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={`absolute inset-0 h-5 w-5 transition-all duration-300 ${
+            light ? "rotate-0 scale-100 opacity-100" : "rotate-180 scale-0 opacity-0"
+          }`}
+        >
+          {/* Center circle */}
+          <circle cx="12" cy="12" r="4" />
+          {/* Rays */}
+          <line x1="12" y1="2" x2="12" y2="5" />
+          <line x1="12" y1="19" x2="12" y2="22" />
+          <line x1="4.93" y1="4.93" x2="7.05" y2="7.05" />
+          <line x1="16.95" y1="16.95" x2="19.07" y2="19.07" />
+          <line x1="2" y1="12" x2="5" y2="12" />
+          <line x1="19" y1="12" x2="22" y2="12" />
+          <line x1="4.93" y1="19.07" x2="7.05" y2="16.95" />
+          <line x1="16.95" y1="7.05" x2="19.07" y2="4.93" />
+        </svg>
+
+        {/* Moon icon — crescent with stars */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={`absolute inset-0 h-5 w-5 transition-all duration-300 ${
+            light ? "-rotate-90 scale-0 opacity-0" : "rotate-0 scale-100 opacity-100"
+          }`}
+        >
+          {/* Crescent moon */}
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+          {/* Stars */}
+          <path d="M19 3v4" />
+          <path d="M21 5h-4" />
+          <path d="M15 1v2" />
+          <path d="M16 2h-2" />
+        </svg>
       </div>
     </button>
   );

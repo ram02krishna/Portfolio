@@ -106,9 +106,9 @@ export function Skills() {
   return (
     <section id="skills" className="relative px-4 py-12 sm:py-20 overflow-hidden">
       <div className="mx-auto max-w-7xl">
-        <div className="reveal mb-16 text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--brand-cyan)] mb-4">// tools</p>
-          <h2 className="text-3xl font-bold sm:text-5xl text-foreground">
+        <div className="reveal mb-12 text-center">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]">// tools</p>
+          <h2 className="mt-2 text-4xl font-bold sm:text-5xl">
             the <span className="text-gradient">Tech Stack</span> I use
           </h2>
         </div>
@@ -127,15 +127,13 @@ export function Skills() {
                     {col.nodes.map((node) => (
                       <div key={node.id} id={node.id} className="relative z-10 w-44">
                         <motion.div
-                          whileHover={{ scale: 1.05, y: -4 }}
-                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                          className="glass gradient-border relative flex w-full items-center gap-4 rounded-xl px-5 py-3.5 shadow-lg group cursor-pointer"
+                          className="glass gradient-border relative flex w-full items-center gap-4 rounded-xl px-5 py-3.5 shadow-[var(--shadow-glow)]"
                         >
-                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent to-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                          <div className="flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent to-white/5 opacity-0 transition-opacity duration-300" />
+                          <div className="flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300">
                             <node.icon className="h-5 w-5" style={{ color: node.color }} />
                           </div>
-                          <span className="text-sm font-semibold text-foreground/90 transition-colors duration-300 group-hover:text-foreground">{node.label}</span>
+                          <span className="text-sm font-semibold text-foreground/90 transition-colors duration-300">{node.label}</span>
                         </motion.div>
                       </div>
                     ))}
@@ -165,7 +163,7 @@ export function Skills() {
         {/* Mobile View: Grid Fallback */}
         <div className="lg:hidden grid gap-6 sm:grid-cols-2">
           {columns.map((col) => (
-            <div key={col.title} className="glass gradient-border rounded-3xl p-6">
+            <div key={col.title} className="glass gradient-border rounded-3xl p-6 shadow-[var(--shadow-glow)]">
               <h3 className="mb-4 font-mono text-xs font-bold tracking-[0.1em] text-muted-foreground uppercase">
                 {col.title}
               </h3>

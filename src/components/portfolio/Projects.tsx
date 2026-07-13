@@ -109,24 +109,24 @@ export function Projects() {
                 key={p.title}
                 className="h-full"
               >
-                <div className="glass gradient-border group relative flex h-full flex-col rounded-3xl p-6 hover-card-effect">
+                <div className="glass gradient-border relative flex h-full flex-col rounded-3xl p-6 shadow-[var(--shadow-glow)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-glow-violet)]">
                   <div className="mb-4 flex items-start justify-between">
-                    <span className="font-mono text-xs text-muted-foreground transition-colors group-hover:text-[color:var(--brand-violet)]">0{i + 1} · {p.tag}</span>
-                    <div className="flex gap-2 opacity-100 md:opacity-0 transition-opacity md:group-hover:opacity-100">
+                    <span className="font-mono text-xs text-muted-foreground">0{i + 1} · {p.tag}</span>
+                    <div className="flex gap-2 opacity-100">
                       {p.github && (
-                        <a href={p.github} aria-label="GitHub" className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary transition-all hover:bg-[color:var(--brand-violet)]/20 hover:text-[color:var(--brand-violet)] hover:scale-110">
+                        <a href={p.github} aria-label="GitHub" className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary transition-colors duration-200 hover:bg-[color:var(--brand-cyan)]/20 hover:text-[color:var(--brand-cyan)]">
                           <Github className="h-3.5 w-3.5" />
                         </a>
                       )}
                       {p.live && (
-                        <a href={p.live} aria-label="Live" className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary transition-all hover:bg-[color:var(--brand-violet)]/20 hover:text-[color:var(--brand-violet)] hover:scale-110">
+                        <a href={p.live} aria-label="Live" className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary transition-colors duration-200 hover:bg-[color:var(--brand-violet)]/20 hover:text-[color:var(--brand-violet)]">
                           <ExternalLink className="h-3.5 w-3.5" />
                         </a>
                       )}
                     </div>
                   </div>
 
-                  <h3 className="font-display text-xl font-semibold transition-colors group-hover:text-gradient">{p.title}</h3>
+                  <h3 className="font-display text-xl font-semibold">{p.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
                   
                   <ul className="mt-4 mb-4 flex-1 space-y-2 text-sm text-muted-foreground">
@@ -157,7 +157,7 @@ export function Projects() {
 
                   <div className="mt-5 flex items-center justify-between border-t border-border pt-4 text-xs">
                     <span className="text-muted-foreground">View Details</span>
-                    <a href={p.live ?? "#"} aria-label="Open project" className="flex h-7 w-7 items-center justify-center rounded-full bg-secondary/60 transition-colors hover:bg-[color:var(--brand-violet)]/30">
+                    <a href={p.live ?? "#"} aria-label="Open project" className="flex h-7 w-7 items-center justify-center rounded-full bg-secondary/60 transition-colors duration-200 hover:bg-[color:var(--brand-cyan)]/20 hover:text-[color:var(--brand-cyan)]">
                       <ExternalLink className="h-3.5 w-3.5" />
                     </a>
                   </div>
@@ -171,14 +171,14 @@ export function Projects() {
           <Button
             asChild
             variant="outline"
-            className="glass group h-12 gap-2 rounded-full px-8 text-sm font-medium transition-all duration-300 hover:border-[color:var(--brand-violet)] hover:bg-[color:var(--brand-violet)]/10 hover:shadow-[var(--shadow-glow-violet)] hover:-translate-y-1"
+            className="glass h-12 gap-2 rounded-full px-8 text-sm font-medium"
           >
             <a
               href="https://github.com/ram02krishna"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Github className="h-4 w-4 transition-transform group-hover:scale-110" />
+              <Github className="h-4 w-4" />
               <span>View all on GitHub</span>
             </a>
           </Button>

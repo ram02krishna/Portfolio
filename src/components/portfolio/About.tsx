@@ -12,11 +12,14 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
         <div className="grid items-center gap-12 md:grid-cols-2">
           {/* Portrait card */}
-          <div 
-            className="reveal relative mx-auto w-full max-w-md md:order-last group cursor-pointer hover-card-effect rounded-[2rem]"
+          <motion.div 
+            className="reveal relative mx-auto w-full max-w-md md:order-last cursor-pointer rounded-[2rem] group"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
           >
             <div
-              className="absolute -inset-4 rounded-[2rem] opacity-40 blur-2xl transition-all duration-500 group-hover:opacity-80 group-hover:blur-3xl"
+              className="absolute -inset-4 rounded-[2rem] opacity-40 blur-2xl transition-all duration-500 group-hover:opacity-70 group-hover:blur-3xl"
               style={{ background: "var(--gradient-brand)" }}
             />
             <div
@@ -40,7 +43,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
                 <User className="hidden h-40 w-40 text-foreground/15" strokeWidth={1} />
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Copy */}
           <div className="reveal">
@@ -62,7 +65,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium text-background shadow-[var(--shadow-glow-violet)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-glow)] animate-gradient-flow"
+                className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium text-background shadow-[var(--shadow-glow-violet)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)] animate-gradient-flow"
                 style={{ background: "var(--gradient-brand)" }}
               >
                 <Download className="h-4 w-4" />
@@ -80,7 +83,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
                     key={s.label}
                     href={s.href}
                     aria-label={s.label}
-                    className="wave-icon flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 text-foreground transition-colors hover:text-[color:var(--brand-violet)] hover:border-[color:var(--brand-violet)]/50"
+                    className="wave-icon flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 text-foreground transition-colors"
                   >
                     <s.icon className="h-4 w-4" />
                   </a>

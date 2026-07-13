@@ -14,7 +14,7 @@ const platforms = [
   {
     name: "Codeforces",
     handle: "ramkrishna",
-    rating: "944",
+    rating: "1197",
     icon: Terminal,
     href: "https://codeforces.com/profile/krishnarammhd",
     color: "var(--brand-cyan)",
@@ -78,10 +78,10 @@ export function CodingPlatforms() {
               href={p.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="reveal glass gradient-border group relative flex w-full sm:w-[calc(50%-10px)] lg:w-[320px] items-center gap-4 rounded-2xl p-5 transition-all hover:-translate-y-1"
+              className="reveal glass gradient-border group relative flex w-full sm:w-[calc(50%-10px)] lg:w-[320px] items-center gap-4 rounded-2xl p-5 transition-all duration-300 shadow-[var(--shadow-glow)] hover:-translate-y-1 hover:shadow-[var(--shadow-glow-violet)]"
             >
               <div
-                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border bg-secondary/40 transition-colors group-hover:border-[color:var(--brand-cyan)]/30 group-hover:bg-secondary/60"
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border bg-secondary/40 transition-colors duration-200 group-hover:border-[color:var(--brand-cyan)]/40 group-hover:bg-secondary/60"
                 style={{ color: p.color }}
               >
                 <p.icon className="h-5 w-5" />
@@ -96,9 +96,9 @@ export function CodingPlatforms() {
                     {p.rating}
                   </span>
                 </div>
-                <div className="mt-1 flex items-center gap-1 text-sm text-muted-foreground transition-colors group-hover:text-foreground">
+                <div className="mt-1 flex items-center gap-1 text-sm text-muted-foreground transition-colors duration-200 group-hover:text-foreground">
                   View Profile
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </div>
               </div>
             </a>
@@ -143,7 +143,7 @@ export function CodingPlatforms() {
                       ? theme === "dark" 
                         ? "bg-[#1f6feb] text-white" 
                         : "bg-[#0969da] text-white"
-                      : "hover:bg-secondary/50 text-muted-foreground hover:text-foreground"
+                      : "text-muted-foreground"
                   }`}
                 >
                   {year === "last" ? "Last Year" : year}
