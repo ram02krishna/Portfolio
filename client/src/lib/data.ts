@@ -4,12 +4,10 @@ export interface Project {
   category: string;
   description: string;
   fullDescription: string;
-  image: string;
   technologies: string[];
   link: string;
   repo: string;
   featured: boolean;
-  images: string[];
 }
 
 export interface Experience {
@@ -29,7 +27,6 @@ export const projects: Project[] = [
       "A professional full-stack finance manager with React 19 and Node.js. Features real-time analytics, automated budgeting, and professional PDF report generation.",
     fullDescription:
       "Expense Tracker is a professional-grade full-stack financial management application built with React 19, Node.js, and MongoDB. It offers users a secure and intuitive platform to manage their personal finances with precision. Key features include a real-time interactive dashboard with multiple visualization options (Bar, Line, and Doughnut charts via Recharts and Chart.js), comprehensive CRUD operations for income and expense records, and advanced budget tracking with recurring daily, weekly, or monthly options. The application prioritizes security with JWT-based authentication and robust backend protection including rate limiting and input sanitization. Users can generate professional PDF reports with embedded charts, manage profiles with Cloudinary-backed image uploads, and enjoy a seamless responsive experience in both dark and light modes.",
-    image: "/images/expense_tracker.png",
     technologies: [
       "React 19",
       "Node.js",
@@ -49,7 +46,6 @@ export const projects: Project[] = [
     link: "https://expense-tracker-omega-wine.vercel.app/login",
     repo: "https://github.com/ByteOps02/Expense_Tracker",
     featured: true,
-    images: ["/images/expense_tracker.png"],
   },
   {
     id: "visitor-management",
@@ -59,7 +55,6 @@ export const projects: Project[] = [
       "A comprehensive visitor tracking platform featuring real-time updates, QR-based check-ins, and automated multi-role approval workflows.",
     fullDescription:
       "This Visitor Management System is a full-stack web application designed to streamline campus security and guest tracking. It features four distinct user roles (Visitor, Host, Guard, Admin) with specialized dashboards for each. Core functionality includes real-time visit logging via Supabase, automated high-density QR code generation for approved visits, and instant email notifications through EmailJS. The system supports both single and multi-day passes, gate-specific check-in/out logs, and integrated identity verification with photo/ID proof uploads. Administrative tools provide user management, bulk CSV uploads, and live analytics for monitoring campus traffic. Built as a PWA, it offers a mobile-first experience with offline support and intuitive navigation.",
-    image: "/images/VMS.png",
     technologies: [
       "React 18",
       "TypeScript",
@@ -77,7 +72,6 @@ export const projects: Project[] = [
     link: "https://visitor-management-system-xi.vercel.app/",
     repo: "https://github.com/ram02krishna/Visitor-Management-System",
     featured: true,
-    images: ["/images/VMS.png"],
   },
   {
     id: "orbix",
@@ -87,7 +81,6 @@ export const projects: Project[] = [
       "A full-stack, real-time chat application featuring audio/video calls via WebRTC, real-time messaging using Socket.io, and secure JWT authentication.",
     fullDescription:
       "Orbix is a full-stack, real-time chat application designed to provide seamless and instant communication. It features peer-to-peer audio and video calling powered by WebRTC, real-time messaging with typing indicators and read receipts using Socket.io, and secure JWT authentication. The app boasts a highly responsive UI built with Next.js, React 19, Tailwind CSS, and Framer Motion, along with robust database interactions using Prisma ORM and scalability through Redis.",
-    image: "/images/orbix.png",
     technologies: [
       "Next.js",
       "React 19",
@@ -101,17 +94,15 @@ export const projects: Project[] = [
     link: "#",
     repo: "https://github.com/ram02krishna/ChatApplication",
     featured: true,
-    images: ["/images/orbix.png"],
   },
   {
-    id: "shortify",
-    title: "Shortify",
+    id: "nanoURL",
+    title: "nanoURL",
     category: "Full Stack",
     description:
       "A high-performance URL shortening platform featuring advanced analytics, password-protected links, and secure OTP-based authentication.",
     fullDescription:
-      "Shortify is a sleek, full-stack URL shortening platform built for speed, security, and simplicity. It offers a comprehensive suite of features including instant link generation, detailed click analytics (tracking IP, browser, OS, and device data), and advanced security options like password-protected links and custom expiration dates. The platform ensures secure user onboarding via Email OTP verification and provides a unique free-tier experience with device-aware limits. Architected with a React/Vite frontend and a high-performance Node.js/PostgreSQL backend using Drizzle ORM, Shortify delivers lightning-fast redirections and a polished, responsive dashboard with adaptive theming, instant QR code generation, and fluid Framer Motion animations.",
-    image: "/images/Shortify.png",
+      "nanoURL is a sleek, full-stack URL shortening platform built for speed, security, and simplicity. It offers a comprehensive suite of features including instant link generation, detailed click analytics (tracking IP, browser, OS, and device data), and advanced security options like password-protected links and custom expiration dates. The platform ensures secure user onboarding via Email OTP verification and provides a unique free-tier experience with device-aware limits. Architected with a React/Vite frontend and a high-performance Node.js/PostgreSQL backend using Drizzle ORM, nanoURL delivers lightning-fast redirections and a polished, responsive dashboard with adaptive theming, instant QR code generation, and fluid Framer Motion animations.",
     technologies: [
       "React",
       "Vite",
@@ -130,7 +121,6 @@ export const projects: Project[] = [
     link: "https://url-shortener-lac-five.vercel.app",
     repo: "https://github.com/ByteOps02/URL_Shortener",
     featured: true,
-    images: ["/images/Shortify.png"],
   },
 ];
 

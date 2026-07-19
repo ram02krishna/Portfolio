@@ -57,13 +57,7 @@ function Hero() {
           [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
         />
 
-        <img
-          src="/images/abstract_dark_premium_fluid_background_for_hero_section.png"
-          alt=""
-          loading="eager"
-          fetchPriority="high"
-          className="w-full h-full object-cover opacity-50"
-        />
+
 
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/70 to-background" />
 

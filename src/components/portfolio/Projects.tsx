@@ -66,7 +66,7 @@ const projects: Project[] = [
     live: "https://orbix-connect-beyond-boundaries.vercel.app/",
   },
   {
-    title: "Shortify",
+    title: "nanoURL",
     tag: "Full Stack",
     desc: "A sleek, full-stack URL shortening platform built for speed and security, offering detailed analytics, password-protection, and OTP verification.",
     features: [

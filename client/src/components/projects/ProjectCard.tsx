@@ -3,8 +3,6 @@ import { Link } from "wouter";
 import {
   ArrowUpRight,
   ExternalLink,
-  ChevronLeft,
-  ChevronRight,
   ArrowRight,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -14,7 +12,6 @@ import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motio
 import SpotlightCard from "@/components/ui/SpotlightCard";
 
 function ProjectCard({ project }: { project: Project }) {
-  const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
   const mouseX = useMotionValue(0);
@@ -23,29 +20,6 @@ function ProjectCard({ project }: { project: Project }) {
   const rotateX = useSpring(0, { stiffness: 300, damping: 30 });
   const rotateY = useSpring(0, { stiffness: 300, damping: 30 });
 
-  useEffect(() => {
-    if (project.images.length <= 1) return;
-
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % project.images.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [project.images.length]);
-
-  const nextImage = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setActiveIndex((prev) => (prev + 1) % project.images.length);
-  };
-
-  const prevImage = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setActiveIndex(
-      (prev) => (prev - 1 + project.images.length) % project.images.length
-    );
-  };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!isHovered) return;
@@ -91,21 +65,8 @@ function ProjectCard({ project }: { project: Project }) {
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary via-purple-500 to-blue-500 opacity-50 blur-sm" />
           </div>
 
-          <div className="relative h-60 overflow-hidden">
+          <div className="relative h-60 overflow-hidden bg-gradient-to-br from-primary/20 to-purple-500/20">
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-50 transition-opacity duration-300 z-10" />
-            <AnimatePresence initial={false}>
-              <motion.img
-                key={activeIndex}
-                src={project.images[activeIndex]}
-                alt={project.title}
-                loading="lazy"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500"
-              />
-            </AnimatePresence>
             <div className="absolute top-4 left-4 z-20">
               <Badge className="bg-background/90 text-foreground backdrop-blur-sm border-0 shadow-sm">
                 {project.category}
@@ -122,31 +83,6 @@ function ProjectCard({ project }: { project: Project }) {
                 <span>View Case Study</span>
               </div>
             </div>
-            {project.images.length > 1 && (
-              <>
-                <button
-                  onClick={prevImage}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 text-white p-1 rounded-full z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-150"
-                >
-                  <ChevronLeft className="h-5 w-5" />
-                </button>
-                <button
-                  onClick={nextImage}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 text-white p-1 rounded-full z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-150"
-                >
-                  <ChevronRight className="h-5 w-5" />
-                </button>
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-                  {project.images.map((_, i) => (
-                    <div
-                      key={i}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${i === activeIndex ? "bg-white w-6" : "bg-white/50"
-                        }`}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
           </div>
 
           <div className="p-5 sm:p-6 relative bg-card/80 backdrop-blur-sm">

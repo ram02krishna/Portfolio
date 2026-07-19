@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import { useRoute, Link } from 'wouter';
 import { getProject, projects } from '@/lib/data';
 import Navbar from '@/components/layout/Navbar';
@@ -18,7 +18,6 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 export default function ProjectDetail() {
   const [, params] = useRoute('/project/:id');
   const project = params?.id ? getProject(params.id) : undefined;
-  const [activeIndex, setActiveIndex] = useState(0);
 
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 200]);
@@ -26,17 +25,6 @@ export default function ProjectDetail() {
   const currentIndex = projects.findIndex((p) => p.id === params?.id);
   const nextProject = projects[(currentIndex + 1) % projects.length];
 
-  const nextImage = () => {
-    setActiveIndex((prev) => (prev + 1) % (project?.images.length || 1));
-  };
-
-  const prevImage = () => {
-    setActiveIndex(
-      (prev) =>
-        (prev - 1 + (project?.images.length || 1)) %
-        (project?.images.length || 1)
-    );
-  };
 
   if (!project) {
     return (
@@ -67,51 +55,10 @@ export default function ProjectDetail() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <div className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
+      <div className="relative h-[60vh] min-h-[500px] w-full overflow-hidden bg-gradient-to-br from-primary/20 to-purple-500/20">
         <motion.div style={{ y }} className="absolute inset-0">
-          <AnimatePresence>
-            <motion.img
-              key={activeIndex}
-              src={project.images[activeIndex]}
-              alt={`${project.title} image ${activeIndex + 1}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="w-full h-full object-cover object-center"
-            />
-          </AnimatePresence>
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background" />
         </motion.div>
-
-        {project.images.length > 1 && (
-          <>
-            <button
-              onClick={prevImage}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full z-20 hover:bg-black/50 transition-colors"
-            >
-              <ArrowLeft className="h-6 w-6" />
-            </button>
-            <button
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full z-20 hover:bg-black/50 transition-colors"
-            >
-              <ArrowRight className="h-6 w-6" />
-            </button>
-            <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-              {project.images.map((_, i) => (
-                <div
-                  key={i}
-                  onClick={() => setActiveIndex(i)}
-                  className={`w-3 h-3 rounded-full cursor-pointer transition-colors ${i === activeIndex
-                    ? "bg-white scale-110"
-                    : "bg-white/50 hover:bg-white/75"
-                    }`}
-                />
-              ))}
-            </div>
-          </>
-        )}
 
         <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-20 container mx-auto relative z-10">
           <motion.div
@@ -196,29 +143,6 @@ export default function ProjectDetail() {
               </p>
             </motion.section>
 
-            <section>
-              <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
-                <span className="w-10 h-[2px] bg-primary block rounded-full" />
-                Project Gallery
-              </h2>
-              <div className="grid gap-8">
-                {project.images.map((img, idx) => (
-                  <div
-                    key={idx}
-                    className="group relative overflow-hidden rounded-2xl border border-border shadow-2xl"
-                  >
-
-                    <img
-                      src={img}
-                      alt={`${project.title} screenshot ${idx + 1}`}
-                      className="w-full"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                ))}
-              </div>
-            </section>
           </div>
 
           <div className="lg:col-span-4">

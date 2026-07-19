@@ -63,12 +63,7 @@ export default function About() {
             className="relative order-2 lg:order-1"
           >
             <div className="aspect-[4/5] max-w-md mx-auto lg:max-w-none rounded-2xl overflow-hidden border border-border shadow-xl relative z-10 group">
-              <img
-                src="/images/Linkedin_Profile.png"
-                alt="Developer Portrait"
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
+
               <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="absolute -z-10 top-6 -left-6 w-full h-full border-2 border-primary/20 rounded-2xl hidden lg:block" />
