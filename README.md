@@ -4,7 +4,7 @@ Welcome to the source code of my personal portfolio — a high-performance, imme
 
 The project features a **Dark Premium** aesthetic, built with a focus on fluid animations, modern CSS (OKLCH), and type-safe architecture.
 
-## 🛠️ Technical Architecture
+## Technical Architecture
 
 ### Frontend
 - **Framework:** [React 19](https://react.dev/) for the latest features and performance.
@@ -20,7 +20,7 @@ The project features a **Dark Premium** aesthetic, built with a focus on fluid a
 - **Server:** [Node.js](https://nodejs.org/) with [Express](https://expressjs.com/).
 - **API:** Simple and scalable REST endpoints for handling contact forms and other dynamic data.
 
-## ✨ Key Features
+## Features
 - **Dynamic Hero Section:** Features a terminal-style code window and a typewriter effect showcasing various roles.
 - **Coding Ratings:** Integration of competitive programming stats from Codeforces and LeetCode.
 - **Immersive Background:** An animated, theme-aware background with floating orbs and grid overlays.
@@ -28,7 +28,7 @@ The project features a **Dark Premium** aesthetic, built with a focus on fluid a
 - **Interactive Projects:** Hover-card effects and detailed project showcases.
 - **Performance:** Optimized asset loading, smooth scroll behavior, and lightweight builds.
 
-## 🚀 Getting Started
+## Getting Started
 
 To run this project locally, ensure you have [Node.js](https://nodejs.org/) installed, then follow these steps:
 
@@ -49,7 +49,7 @@ To run this project locally, ensure you have [Node.js](https://nodejs.org/) inst
    ```
    *This will concurrently start both the Vite frontend (port 5173) and the Express backend (port 5000).*
 
-## 📁 Project Structure
+## Project Structure
 
 - `src/`: The core frontend application.
   - `components/portfolio/`: Feature-specific sections like Hero, About, Projects, etc.
