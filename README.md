@@ -1,4 +1,4 @@
-# Ram Krishna | Full Stack Developer Portfolio
+## Ram Krishna | Full Stack Developer Portfolio
 
 Welcome to the source code of my personal portfolio — a high-performance, immersive web experience built to showcase my professional journey, full-stack projects, and technical expertise.
 
