@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Xarrow, { Xwrapper } from "react-xarrows";
 import { motion } from "framer-motion";
+import { FaAws } from "react-icons/fa";
 import {
   SiReact, SiTailwindcss, SiFramer,
   SiTypescript, SiJavascript,
   SiNextdotjs, SiNodedotjs, SiExpress,
-  SiSupabase, SiMongodb, SiPostgresql, SiNeon,
-  SiGit, SiGithub, SiDocker,
+  SiMongodb, SiPostgresql, SiNeon,
+  SiGit, SiGithub, SiDocker, SiNginx, SiGithubactions,
   SiPrisma, SiDrizzle
 } from "react-icons/si";
 
@@ -44,7 +45,7 @@ const columns = [
   {
     title: "STORAGE & CLOUD",
     nodes: [
-      { id: "supabase", label: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
+      { id: "aws", label: "AWS", icon: FaAws, color: "#FF9900" },
       { id: "mongo", label: "MongoDB", icon: SiMongodb, color: "#47A248" },
       { id: "postgres", label: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
       { id: "neon", label: "Neon", icon: SiNeon, color: "#00E599" }
@@ -55,7 +56,9 @@ const columns = [
     nodes: [
       { id: "git", label: "Git", icon: SiGit, color: "#F05032" },
       { id: "github", label: "GitHub", icon: SiGithub, color: "var(--foreground)" },
-      { id: "docker", label: "Docker", icon: SiDocker, color: "#2496ED" }
+      { id: "docker", label: "Docker", icon: SiDocker, color: "#2496ED" },
+      { id: "nginx", label: "Nginx", icon: SiNginx, color: "#009639" },
+      { id: "cicd", label: "CI/CD", icon: SiGithubactions, color: "#2088FF" }
     ]
   }
 ];
@@ -79,11 +82,14 @@ const connections = [
   
   { start: "prisma", end: "postgres" },
   { start: "drizzle", end: "postgres" },
-  { start: "drizzle", end: "supabase" },
+  { start: "drizzle", end: "aws" },
   { start: "drizzle", end: "neon" },
   
   { start: "express", end: "mongo" },
   { start: "express", end: "postgres" },
+  { start: "docker", end: "aws" },
+  { start: "docker", end: "nginx" },
+  { start: "github", end: "cicd" },
 ];
 
 export function Skills() {
@@ -123,7 +129,7 @@ export function Skills() {
                     {col.title}
                   </h3>
                   
-                  <div className={`flex flex-col gap-10 ${i % 2 !== 0 ? 'mt-16' : ''}`}>
+                  <div className={`flex flex-col gap-10 ${i % 2 !== 0 && i !== columns.length - 1 ? 'mt-16' : ''}`}>
                     {col.nodes.map((node) => (
                       <div key={node.id} id={node.id} className="relative z-10 w-44">
                         <motion.div

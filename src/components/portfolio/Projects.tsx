@@ -29,52 +29,52 @@ const projects: Project[] = [
   {
     title: "Expense Tracker",
     tag: "Full Stack",
-    desc: "A full-stack finance manager built with React and Node.js. It helps users track their expenses, manage budgets, and view basic analytics.",
+    desc: "A full-stack MERN finance manager where users log income & expenses, set category budgets, visualize spending via interactive charts, and export reports as Excel or PDF — with secure JWT auth and email OTP recovery.",
     features: [
-      "Visual analytics and charts for tracking spending habits",
-      "Secure user authentication with JWT",
-      "Responsive dashboard for managing income and expenses"
+      "Interactive Chart.js dashboards — bar, line & doughnut — with monthly analytics",
+      "Budget management with visual usage indicators per category",
+      "Excel & PDF report export, rate limiting, Helmet.js security headers"
     ],
-    stack: ["React", "Node.js", "Express.js", "MongoDB", "Cloudinary", "TypeScript", "Tailwind CSS", "Redux", "JWT", "Axios"],
+    stack: ["React", "Node.js", "Express.js", "MongoDB", "Mongoose", "Cloudinary", "Tailwind CSS", "JWT", "Resend", "ExcelJS"],
     github: "https://github.com/ram02krishna/Expense_Tracker",
     live: "https://expense-tracker-omega-wine.vercel.app/login#",
   },
   {
     title: "Visitor Management System",
     tag: "Full Stack",
-    desc: "A full-stack web application to manage visitor access with real-time updates, role-based access control, automated QR check-ins, and email notifications.",
+    desc: "A comprehensive full-stack VMS for IIIT Nagpur with four distinct roles (Visitor, Host, Guard, Admin), automated QR code generation, email notifications, multi-day pass support, blacklist management, and a PWA-ready mobile-first UI.",
     features: [
-      "Role-based access control (Admin, Guard, Host, Visitor)",
-      "Automated QR code generation and HTML5 scanning for check-ins",
-      "Real-time dashboard updates via Supabase and EmailJS notifications"
+      "Role-based access control with multi-stage approval: pending → approved → checked-in → completed",
+      "HTML5 QR scanner for gate check-in/out with gate-specific logs and blacklist enforcement",
+      "Bulk CSV visitor upload, Google OAuth, PWA support, and dark mode"
     ],
-    stack: ["React", "TypeScript", "Supabase", "Tailwind CSS", "Zustand", "EmailJS", "Radix UI", "PWA", "Vite", "React Router"],
+    stack: ["React", "TypeScript", "Vite", "Express.js", "Node.js", "Prisma", "PostgreSQL", "Cloudinary", "Tailwind CSS", "Zustand", "Resend", "JWT", "PWA", "React Router"],
     github: "https://github.com/ram02krishna/Visitor-Management-System",
     live: "https://visitor-management-system-xi.vercel.app/#",
   },
   {
     title: "Orbix",
     tag: "Full Stack",
-    desc: "A highly sophisticated real-time chat application featuring secure authentication, rich media sharing, peer-to-peer calling, and interactive statuses.",
+    desc: "A production-grade real-time chat app with Socket.io messaging, WebRTC peer-to-peer audio/video calls, group chat management, rich media sharing via Cloudinary, deterministic email encryption, and Redis-backed email verification.",
     features: [
-      "Real-time messaging with Socket.io and media sharing via Cloudinary",
-      "Crystal-clear peer-to-peer audio and video calling powered by WebRTC",
-      "Secure JWT authentication with Argon2 and granular group permissions"
+      "Real-time messaging with typing indicators, online presence, and Socket.io Pub/Sub via Redis",
+      "Crystal-clear peer-to-peer audio & video calls powered by WebRTC",
+      "Argon2 password hashing, rate limiting, Helmet security, and deterministic email encryption"
     ],
-    stack: ["Next.js 15", "React 19", "Socket.io", "WebRTC", "Prisma", "PostgreSQL", "Redis", "Zustand", "Tailwind CSS", "Express.js"],
+    stack: ["Next.js 15", "React 19", "Socket.io", "WebRTC", "Prisma", "PostgreSQL", "Redis", "Cloudinary", "Zustand", "Tailwind CSS", "Express.js", "Resend"],
     github: "https://github.com/ram02krishna/Orbix---Connect-Beyond-Boundaries",
     live: "https://orbix-connect-beyond-boundaries.vercel.app/",
   },
   {
     title: "nanoURL",
     tag: "Full Stack",
-    desc: "A sleek, full-stack URL shortening platform built for speed and security, offering detailed analytics, password-protection, and OTP verification.",
+    desc: "A sleek, full-stack URL shortening platform built for speed and security — offering deep click analytics (IP, browser, OS, device), password-protected & expiring links, QR code generation, anonymous free-tier shortening, and OTP email verification.",
     features: [
-      "Detailed click analytics (IP, browser info, OS, and device types)",
-      "Secure links with custom expiration dates and password protection",
-      "Lightning-fast redirection powered by PostgreSQL and Drizzle ORM"
+      "Deep click analytics: IP address, browser, OS, and device type per redirect",
+      "Password-protected links with custom expiration dates and instant QR code download",
+      "Dockerized deployment with Zod-powered centralized validation and Drizzle ORM"
     ],
-    stack: ["React", "Node.js", "Express.js", "PostgreSQL", "Drizzle ORM", "Docker", "Tailwind CSS", "JWT", "Zod", "Vite"],
+    stack: ["React", "Node.js", "Express.js", "PostgreSQL", "Drizzle ORM", "Docker", "Tailwind CSS", "JWT", "Zod", "Vite", "Resend"],
     github: "https://github.com/ram02krishna/URL_Shortener",
     live: "https://url-shortener-lac-five.vercel.app/",
   },
