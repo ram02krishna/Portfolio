@@ -137,11 +137,15 @@
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeSpeed;
+    overflow-x: clip;
+    max-width: 100%;
   }
 
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 4rem;
+    overflow-x: hidden;
+    max-width: 100%;
   }
   
   h1, h2, h3, h4 {
@@ -339,14 +343,19 @@
    Mobile Responsiveness Improvements
 ══════════════════════════════════════════════════ */
 
-/* Prevent all horizontal overflow */
-html, body {
+/* Prevent all horizontal overflow without creating an inner scroll container */
+html {
   overflow-x: hidden;
-  max-width: 100vw;
+  max-width: 100%;
+}
+
+body {
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 section {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Hero section — tighten on very small screens */
