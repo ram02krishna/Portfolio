@@ -59,9 +59,9 @@ export function CodingPlatforms() {
   }, []);
 
   return (
-    <section id="platforms" className="relative px-4 py-12 sm:py-20">
+    <section id="platforms" className="relative px-4 py-8 sm:py-12">
       <div className="mx-auto max-w-6xl">
-        <div className="reveal mb-12 text-center">
+        <div className="reveal mb-8 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]">// competitive</p>
           <h2 className="mt-2 text-4xl font-bold sm:text-5xl">
             Coding <span className="text-gradient">Platforms.</span>
@@ -106,7 +106,7 @@ export function CodingPlatforms() {
         </div>
 
         {/* GitHub Calendar */}
-        <div className="reveal mt-16 flex flex-col items-center">
+        <div className="reveal mt-10 flex flex-col items-center">
           <h3 className="mb-6 font-display text-xl font-semibold">
             GitHub <span className="text-gradient">Contributions.</span>
           </h3>

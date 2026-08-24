@@ -1,5 +1,4 @@
 import { ExternalLink, Github } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 const container = {
@@ -82,9 +81,9 @@ const projects: Project[] = [
 
 export function Projects() {
   return (
-    <section id="projects" className="relative px-4 py-12 sm:py-20">
+    <section id="projects" className="relative px-4 py-10 sm:py-12">
       <div className="mx-auto max-w-6xl">
-        <div className="reveal mb-12 text-center">
+        <div className="reveal mb-8 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]">// projects</p>
           <h2 className="mt-2 text-4xl font-bold sm:text-5xl">
             Selected <span className="text-gradient">work</span>
@@ -167,21 +166,16 @@ export function Projects() {
           })}
         </motion.div>
 
-        <div className="reveal mt-16 flex justify-center">
-          <Button
-            asChild
-            variant="outline"
-            className="glass h-12 gap-2 rounded-full px-8 text-sm font-medium"
+        <div className="reveal mt-10 flex justify-center">
+          <a
+            href="https://github.com/ram02krishna"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-12 items-center gap-2 rounded-full border border-border bg-secondary/30 px-8 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-200 hover:border-[color:var(--brand-cyan)]/50 hover:bg-secondary/60 hover:text-foreground hover:shadow-[var(--shadow-glow)]"
           >
-            <a
-              href="https://github.com/ram02krishna"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github className="h-4 w-4" />
-              <span>View all on GitHub</span>
-            </a>
-          </Button>
+            <Github className="h-4 w-4" />
+            <span>View all on GitHub</span>
+          </a>
         </div>
       </div>
     </section>

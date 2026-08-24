@@ -18,7 +18,7 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-border px-4 pb-8 pt-16">
+    <footer className="relative border-t border-border px-4 pb-6 pt-10">
       {/* gradient top accent */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-px"
@@ -36,7 +36,7 @@ export function Footer() {
               <span className="text-gradient">Ram.dev</span>
             </h3>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Architecting resilient backends and crafting seamless full-stack experiences with a focus on engineering excellence and scalable code.
+              Architecting resilient backends and building reliable DevOps pipelines with a focus on engineering excellence and scalable infrastructure.
             </p>
             <div className="mt-6 flex items-center gap-2">
               {socials.map((s) => (

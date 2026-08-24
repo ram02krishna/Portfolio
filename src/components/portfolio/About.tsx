@@ -1,9 +1,11 @@
 import { Github, Linkedin, Twitter, Mail, Download, User } from "lucide-react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";export function About() {
+import { motion } from "framer-motion";
+
+export function About() {
   return (
-    <section id="about" className="relative px-4 py-12 sm:py-20">
+    <section id="about" className="relative px-4 py-10 sm:py-16">
       <div className="mx-auto max-w-6xl">
-        <div className="reveal mb-12 text-center">
+        <div className="reveal mb-8 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]">// about</p>
           <h2 className="mt-2 text-4xl font-bold sm:text-5xl">
             A little bit <span className="text-gradient">about me.</span>
@@ -12,16 +14,13 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
         <div className="grid items-center gap-12 md:grid-cols-2">
           {/* Portrait card */}
-          <motion.div 
+          <motion.div
             className="reveal relative mx-auto w-full max-w-md md:order-last cursor-pointer rounded-[2rem] group"
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
-            <div
-              className="absolute -inset-4 rounded-[2rem] opacity-40 blur-2xl transition-all duration-500 group-hover:opacity-70 group-hover:blur-3xl"
-              style={{ background: "var(--gradient-brand)" }}
-            />
             <div
               className="glass gradient-border relative aspect-square overflow-hidden rounded-[2rem]"
               style={{
@@ -30,11 +29,13 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
               }}
             >
               {/* Profile Image */}
-              <div className="flex h-full w-full items-center justify-center relative z-10 bg-black/20">
-                <img 
-                  src="/profile.png" 
-                  alt="Ram Krishna" 
-                  className="h-full w-full object-cover transition-all duration-700 ease-out scale-100 group-hover:scale-105"
+              <div className="flex h-full w-full items-center justify-center relative z-10">
+                <img
+                  src="/profile.png"
+                  alt="Ram Krishna"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     e.currentTarget.nextElementSibling?.classList.remove('hidden');
@@ -48,7 +49,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
           {/* Copy */}
           <div className="reveal">
             <div className="mb-8">
-              <h3 className="text-2xl font-bold text-foreground sm:text-3xl">Open to SDE, Backend & Full Stack Roles</h3>
+              <h3 className="text-2xl font-bold text-foreground sm:text-3xl">Open to SDE, Backend & DevOps Roles</h3>
             </div>
 
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg max-w-2xl">
@@ -56,7 +57,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
                 Hi, I'm Ram Krishna. Over the past year, I've spent my time learning and building full-stack web applications. I really enjoy figuring out how things work under the hood, from setting up databases and APIs to making sure the front-end looks great and runs smoothly.
               </p>
               <p>
-                Right now, I'm looking for a full-time role as a developer. I'm eager to join a team where I can learn from experienced engineers, write good code, and help build products that people actually use.
+                I'm currently looking for a full-time role as a backend or DevOps engineer. I'm eager to join a team where I can learn from experienced engineers, write good code, and help ship reliable infrastructure and products.
               </p>
             </div>
 

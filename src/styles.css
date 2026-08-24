@@ -95,34 +95,34 @@
   --secondary: oklch(0.93 0.015 250);
   --secondary-foreground: oklch(0.2 0.03 265);
   --muted: oklch(0.93 0.015 250);
-  --muted-foreground: oklch(0.4 0.03 260);
+  --muted-foreground: oklch(0.38 0.03 260);
   --accent: oklch(0.5 0.22 305);
   --accent-foreground: oklch(0.99 0.005 250);
   
-  --border: oklch(0.2 0.03 265 / 0.15);
-  --input: oklch(0.2 0.03 265 / 0.15);
+  --border: oklch(0.2 0.03 265 / 0.18);
+  --input: oklch(0.2 0.03 265 / 0.18);
   --ring: oklch(0.5 0.16 220);
 
   /* Deepen brand colors in light mode for better contrast */
-  --brand-cyan: oklch(0.55 0.16 220);
-  --brand-violet: oklch(0.5 0.22 305);
-  --brand-pink: oklch(0.55 0.2 350);
+  --brand-cyan: oklch(0.48 0.16 220);
+  --brand-violet: oklch(0.45 0.22 305);
+  --brand-pink: oklch(0.50 0.2 350);
 
-  --glass-bg: oklch(1 0 0 / 0.65);
-  --glass-border: oklch(0.2 0.03 265 / 0.12);
+  --glass-bg: oklch(1 0 0 / 0.75);
+  --glass-border: oklch(0.2 0.03 265 / 0.18);
 
   /* Light-mode glow shadows (softer, tinted for white bg) */
-  --shadow-glow: 0 10px 60px -10px oklch(0.5 0.16 220 / 0.2);
-  --shadow-glow-violet: 0 10px 60px -10px oklch(0.5 0.22 305 / 0.25);
-  --gradient-brand: linear-gradient(135deg, oklch(0.55 0.16 220), oklch(0.5 0.22 305) 50%, oklch(0.55 0.2 350));
+  --shadow-glow: 0 8px 40px -8px oklch(0.5 0.16 220 / 0.25);
+  --shadow-glow-violet: 0 8px 40px -8px oklch(0.5 0.22 305 / 0.30);
+  --gradient-brand: linear-gradient(135deg, oklch(0.48 0.16 220), oklch(0.45 0.22 305) 50%, oklch(0.50 0.2 350));
 
   /* Syntax colors - Light mode */
-  --code-keyword: #7c4dff;
-  --code-variable: #2979ff;
-  --code-string: #2e7d32;
-  --code-property: #d84315;
-  --code-number: #bf360c;
-  --code-comment: #78909c;
+  --code-keyword: #6200ea;
+  --code-variable: #1565c0;
+  --code-string: #1b5e20;
+  --code-property: #bf360c;
+  --code-number: #b71c1c;
+  --code-comment: #546e7a;
 }
 
 @layer base {
@@ -136,16 +136,22 @@
     font-family: var(--font-body);
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeSpeed;
   }
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 4rem;
   }
   
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+  }
+
+  /* Each section is an independent paint region */
+  section {
+    contain: paint;
   }
 }
 
@@ -239,7 +245,7 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0.4;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.25s ease;
     pointer-events: none;
   }
   .gradient-border:hover::before {
@@ -261,12 +267,14 @@
 
   .reveal {
     opacity: 0;
-    transform: translateY(30px) scale(0.98);
-    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
   }
   .reveal.in-view {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
+    will-change: auto;
   }
 }
 
@@ -282,21 +290,22 @@
 }
 
 .wave-icon {
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-  animation: wave-bob 3s ease-in-out infinite;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: wave-bob 4s ease-in-out infinite;
+  will-change: transform;
 }
 .wave-icon:hover {
   animation-play-state: paused;
   transform: translateY(-4px) scale(1.1);
-  filter: drop-shadow(0 0 6px var(--brand-violet));
+  box-shadow: 0 0 12px oklch(0.7 0.22 305 / 0.4);
 }
 .wave-icon:nth-child(1) { animation-delay: 0s; }
-.wave-icon:nth-child(2) { animation-delay: 0.2s; }
-.wave-icon:nth-child(3) { animation-delay: 0.4s; }
-.wave-icon:nth-child(4) { animation-delay: 0.6s; }
-.wave-icon:nth-child(5) { animation-delay: 0.8s; }
+.wave-icon:nth-child(2) { animation-delay: 0.25s; }
+.wave-icon:nth-child(3) { animation-delay: 0.5s; }
+.wave-icon:nth-child(4) { animation-delay: 0.75s; }
+.wave-icon:nth-child(5) { animation-delay: 1s; }
 @media (prefers-reduced-motion: reduce) {
-  .wave-icon { animation: none; }
+  .wave-icon { animation: none; will-change: auto; }
 }
 @keyframes blink {
   0%, 49% { opacity: 1; }
@@ -318,4 +327,170 @@
 .animate-gradient-flow {
   background-size: 240% 240%;
   animation: premium-gradient 6s ease-in-out infinite;
+}
+
+/* ══════════════════════════════════════════════════
+   Mobile Responsiveness Improvements
+══════════════════════════════════════════════════ */
+
+/* Prevent all horizontal overflow */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+section {
+  overflow-x: hidden;
+}
+
+/* Hero section — tighten on very small screens */
+@media (max-width: 480px) {
+  #hero h1 {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+
+  #hero pre {
+    font-size: 10px;
+    padding: 0.75rem;
+    line-height: 1.6;
+  }
+
+  #hero pre code > div {
+    gap: 0.5rem;
+  }
+}
+
+/* About — stack portrait below copy on small screens, ensure portrait doesn't overflow */
+@media (max-width: 767px) {
+  #about .grid {
+    grid-template-columns: 1fr;
+  }
+
+  #about .relative.mx-auto {
+    max-width: 18rem;
+    width: 100%;
+  }
+}
+
+/* Skills — ensure mobile grid doesn't overflow */
+@media (max-width: 640px) {
+  #skills .lg\:hidden {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Experience two-column panel — stack on mobile */
+@media (max-width: 767px) {
+  #experience .glass.gradient-border .grid {
+    grid-template-columns: 1fr;
+  }
+
+  #experience .flex.flex-col.p-6 {
+    border-top: 1px solid var(--border);
+    border-left: none !important;
+  }
+}
+
+/* Contact — direct contact cards stack on xs */
+@media (max-width: 480px) {
+  #contact .grid.sm\:grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  #contact .grid.sm\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer — stack everything on mobile */
+@media (max-width: 767px) {
+  footer .grid.md\:grid-cols-3 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  footer .mt-12.flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}
+
+/* Navbar — ensure pill stays contained */
+@media (max-width: 400px) {
+  nav .text-gradient {
+    font-size: 0.95rem;
+  }
+}
+
+/* Ensure rounded cards don't clip on mobile */
+@media (max-width: 640px) {
+  .rounded-\[2\.5rem\] {
+    border-radius: 1.5rem;
+  }
+
+  .glass.gradient-border {
+    border-radius: 1.5rem;
+  }
+}
+
+/* ══════════════════════════════════════════════════
+   Light Theme — Targeted Visibility Fixes
+══════════════════════════════════════════════════ */
+
+/* Stronger card surfaces in light mode */
+.light .glass {
+  background: oklch(1 0 0 / 0.80);
+  border-color: oklch(0.2 0.03 265 / 0.16);
+}
+
+/* Terminal body in light mode — use a visible gray instead of black */
+.light #experience .rounded-xl,
+.light #hero pre {
+  background: oklch(0.88 0.01 260 / 0.7) !important;
+}
+
+/* Ensure foreground/90 text is readable in light mode */
+.light .text-foreground\/90 {
+  color: oklch(0.15 0.03 265 / 0.92);
+}
+
+/* Chip badges need legible text in light mode */
+.light .text-muted-foreground\/70,
+.light .text-muted-foreground\/60,
+.light .text-muted-foreground\/50 {
+  color: oklch(0.35 0.03 260);
+}
+
+/* "or find me on" divider text */
+.light .text-muted-foreground\/50 {
+  color: oklch(0.40 0.02 260);
+}
+
+/* Focus area chip text */
+.light .text-foreground\/80 {
+  color: oklch(0.18 0.03 265 / 0.85);
+}
+
+/* Section header mono label */
+.light .text-muted-foreground\/80 {
+  color: oklch(0.35 0.03 260);
+}
+
+/* Secondary bg sections in light mode — give them a distinct surface */
+.light .bg-secondary\/10,
+.light .bg-secondary\/20,
+.light .bg-secondary\/30,
+.light .bg-secondary\/40 {
+  background-color: oklch(0.91 0.015 250 / 0.6);
+}
+
+/* gradient-border glow more visible on light */
+.light .gradient-border::before {
+  opacity: 0.55;
+}
+.light .gradient-border:hover::before {
+  opacity: 0.9;
 }

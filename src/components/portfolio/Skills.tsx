@@ -95,24 +95,30 @@ const connections = [
 export function Skills() {
   const [mounted, setMounted] = useState(false);
   
-  // Re-render arrows when window resizes
   useEffect(() => {
-    const timer = setTimeout(() => setMounted(true), 300);
+    // Initial mount with slight delay to let layout settle
+    const timer = setTimeout(() => setMounted(true), 200);
+
+    // Debounced resize — destroy arrows, wait for resize to finish, then remount once
+    let resizeTimer: ReturnType<typeof setTimeout>;
     const handleResize = () => {
       setMounted(false);
-      setTimeout(() => setMounted(true), 300);
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => setMounted(true), 400);
     };
-    window.addEventListener("resize", handleResize);
+
+    window.addEventListener("resize", handleResize, { passive: true });
     return () => {
       clearTimeout(timer);
+      clearTimeout(resizeTimer);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
-    <section id="skills" className="relative px-4 py-12 sm:py-20 overflow-hidden">
+    <section id="skills" className="relative px-4 py-8 sm:py-12 overflow-hidden">
       <div className="mx-auto max-w-7xl">
-        <div className="reveal mb-12 text-center">
+        <div className="reveal mb-8 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]">// tools</p>
           <h2 className="mt-2 text-4xl font-bold sm:text-5xl">
             the <span className="text-gradient">Tech Stack</span> I use

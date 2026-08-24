@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Reveal } from "@/components/ui/Reveal";
 
-const ROLES = ["Backend Developer", "Full Stack Developer", "Software Developer", "Problem Solver"];
+const ROLES = ["Backend Developer", "DevOps Engineer", "Software Developer", "Problem Solver"];
 
 export function Hero() {
   const [idx, setIdx] = useState(0);
@@ -34,7 +34,7 @@ export function Hero() {
   }, [text, deleting, idx]);
 
   return (
-    <section id="hero" className="relative flex min-h-screen items-center justify-center px-4 pt-24">
+    <section id="hero" className="relative flex min-h-screen items-center justify-center px-4 pt-20">
       <div className="mx-auto max-w-4xl text-center">
         <div className="glass mx-auto mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs text-muted-foreground reveal">
           <Sparkles className="h-3.5 w-3.5 text-[color:var(--brand-cyan)]" />
@@ -73,7 +73,7 @@ export function Hero() {
             <pre className="overflow-x-auto bg-secondary/20 p-4 font-mono text-[11px] leading-6 sm:p-5 sm:text-sm sm:leading-7">
               <code>
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">01</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>name</span> <span className="text-muted-foreground">=</span> <span style={{ color: "var(--code-string)" }}>"Ram Krishna"</span>;</span></div>
-                <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">02</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>role</span> <span className="text-muted-foreground">=</span> <span style={{ color: "var(--code-string)" }}>"Backend & Full Stack Developer"</span>;</span></div>
+                <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">02</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>role</span> <span className="text-muted-foreground">=</span> <span style={{ color: "var(--code-string)" }}>"Backend & DevOps Engineer"</span>;</span></div>
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">03</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>status</span> <span className="text-muted-foreground">=</span> <span style={{ color: "var(--code-string)" }}>"Writing code & building projects"</span>;</span></div>
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">04</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>ratings</span> <span className="text-muted-foreground">=</span> {"{ "}<span style={{ color: "var(--code-property)" }}>codeforces</span>: <span style={{ color: "var(--code-number)" }}>1197</span>, <span style={{ color: "var(--code-property)" }}>leetcode</span>: <span style={{ color: "var(--code-number)" }}>1657</span> {"}"};</span></div>
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">05</span><span style={{ color: "var(--code-comment)", fontStyle: "italic" }}>// Ready to join a great team.</span></div>

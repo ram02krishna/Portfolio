@@ -101,13 +101,8 @@ export function ThemeToggle() {
             light ? "-rotate-90 scale-0 opacity-0" : "rotate-0 scale-100 opacity-100"
           }`}
         >
-          {/* Crescent moon */}
+          {/* Crescent moon — clean, no stars */}
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-          {/* Stars */}
-          <path d="M19 3v4" />
-          <path d="M21 5h-4" />
-          <path d="M15 1v2" />
-          <path d="M16 2h-2" />
         </svg>
       </div>
     </button>
