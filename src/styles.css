@@ -188,24 +188,30 @@
     border: 1px solid var(--glass-border);
   }
 
-  .custom-scrollbar::-webkit-scrollbar,
-  .custom-scrollbar *::-webkit-scrollbar {
-    height: 8px;
-    width: 8px;
+  /* Only show the horizontal scrollbar — suppress the vertical one that conflicts with the native driver */
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 6px;
+    width: 0px;        /* hide vertical */
   }
-  .custom-scrollbar::-webkit-scrollbar-track,
-  .custom-scrollbar *::-webkit-scrollbar-track {
+  .custom-scrollbar *::-webkit-scrollbar {
+    height: 6px;
+    width: 0px;
+  }
+  .custom-scrollbar {
+    scrollbar-width: thin;           /* Firefox */
+    scrollbar-color: rgba(150,150,150,0.45) transparent;
+    overflow-y: hidden !important;   /* no vertical scrollbar at all */
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
     background: transparent;
     border-radius: 4px;
   }
-  .custom-scrollbar::-webkit-scrollbar-thumb,
-  .custom-scrollbar *::-webkit-scrollbar-thumb {
-    background: rgba(150, 150, 150, 0.5);
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(150, 150, 150, 0.45);
     border-radius: 4px;
   }
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover,
-  .custom-scrollbar *::-webkit-scrollbar-thumb:hover {
-    background: rgba(150, 150, 150, 0.8);
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 150, 150, 0.75);
   }
 
   /* Prevent the scrollbar from overlapping the calendar squares */
@@ -267,8 +273,8 @@
 
   .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(16px);
+    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: opacity, transform;
   }
   .reveal.in-view {

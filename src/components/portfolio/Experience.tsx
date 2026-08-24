@@ -64,7 +64,7 @@ export function Experience() {
               {/* Headline */}
               <div>
                 <h3 className="text-2xl font-bold sm:text-3xl text-foreground/90 leading-snug">
-                  Open to Backend &{" "}
+                  Open to SDE, Backend &{" "}
                   <span className="text-gradient">DevOps Roles</span>
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">

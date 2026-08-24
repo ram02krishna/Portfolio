@@ -49,7 +49,10 @@ export function About() {
           {/* Copy */}
           <div className="reveal">
             <div className="mb-8">
-              <h3 className="text-2xl font-bold text-foreground sm:text-3xl">Open to SDE, Backend & DevOps Roles</h3>
+              <h3 className="text-2xl font-bold text-foreground sm:text-3xl">
+                Open to SDE, Backend &{" "}
+                <span className="text-gradient">DevOps Roles</span>
+              </h3>
             </div>
 
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg max-w-2xl">
