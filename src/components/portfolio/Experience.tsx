@@ -13,6 +13,8 @@ const focusAreas = [
 const terminalLines = [
   { prefix: "$", text: "whoami", type: "cmd" },
   { text: "ram_krishna  →  backend & devops engineer", type: "out" },
+  { prefix: "$", text: "cat education.txt", type: "cmd" },
+  { text: "B.Tech in CSE @ IIIT Nagpur (Class of 2027)", type: "out" },
   { prefix: "$", text: "cat current_status.txt", type: "cmd" },
   { text: "✔  actively seeking full-time roles", type: "out-green" },
   { text: "✔  building devops side-projects", type: "out-green" },

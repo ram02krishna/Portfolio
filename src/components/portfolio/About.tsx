@@ -57,10 +57,13 @@ export function About() {
 
             <div className="space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg max-w-2xl">
               <p>
-                Hi, I'm Ram Krishna. Over the past year, I've spent my time learning and building full-stack web applications. I really enjoy figuring out how things work under the hood, from setting up databases and APIs to making sure the front-end looks great and runs smoothly.
+                Hi, I'm Ram Krishna. I am currently pursuing a Bachelor of Technology (B.Tech) in Computer Science and Engineering from the Indian Institute of Information Technology, Nagpur (IIIT Nagpur), graduating in 2027.
               </p>
               <p>
-                I'm currently looking for a full-time role as a backend or DevOps engineer. I'm eager to join a team where I can learn from experienced engineers, write good code, and help ship reliable infrastructure and products.
+                Over the past year, I've spent my time learning and building full-stack web applications. I really enjoy figuring out how things work under the hood, from setting up databases and APIs to making sure the front-end looks great and runs smoothly.
+              </p>
+              <p>
+                I'm currently looking for roles as an SDE, Backend, or DevOps engineer. I'm eager to join a team where I can learn from experienced engineers, write good code, and help ship reliable infrastructure and products.
               </p>
             </div>
 
