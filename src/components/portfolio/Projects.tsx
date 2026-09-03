@@ -39,29 +39,29 @@ const projects: Project[] = [
     live: "https://expense-tracker-omega-wine.vercel.app/login#",
   },
   {
-    title: "Visitor Management System",
+    title: "IIIT Nagpur VMS",
     tag: "Full Stack",
-    desc: "A comprehensive full-stack VMS for IIIT Nagpur with four distinct roles (Visitor, Host, Guard, Admin), automated QR code generation, email notifications, multi-day pass support, blacklist management, and a PWA-ready mobile-first UI.",
+    desc: "A unified campus access & security management system for IIIT Nagpur featuring 6-role RBAC, 10-floor hostel census tracking, 09:30 PM curfew pass enforcement, optical gate QR verification, and live campus telemetry.",
     features: [
-      "Role-based access control with multi-stage approval: pending → approved → checked-in → completed",
-      "HTML5 QR scanner for gate check-in/out with gate-specific logs and blacklist enforcement",
-      "Bulk CSV visitor upload, Google OAuth, PWA support, and dark mode"
+      "Interactive 10-floor hostel census matrix tracking 400+ residents with automated 09:30 PM curfew strikes",
+      "Dual-checkpoint optical QR scanner (Main & Hostel Gate), walk-in kiosk with webcam badges, & vehicle lookup",
+      "Live campus capacity telemetry (1,000 safe limit), overstay security radar with escort dispatch, & SOS beacon"
     ],
-    stack: ["React", "TypeScript", "Vite", "Express.js", "Node.js", "Prisma", "PostgreSQL", "Cloudinary", "Tailwind CSS", "Zustand", "Resend", "JWT", "PWA", "React Router"],
+    stack: ["React", "TypeScript", "Node.js", "Express.js", "Prisma", "PostgreSQL", "Tailwind CSS", "Zustand", "Resend", "Cloudinary", "HTML5 QR", "PWA", "Vite"],
     github: "https://github.com/ram02krishna/Visitor-Management-System",
     live: "https://visitor-management-system-xi.vercel.app/#",
   },
   {
-    title: "Orbix",
+    title: "QuickConnect",
     tag: "Full Stack",
-    desc: "A production-grade real-time chat app with Socket.io messaging, WebRTC peer-to-peer audio/video calls, group chat management, rich media sharing via Cloudinary, deterministic email encryption, and Redis-backed email verification.",
+    desc: "An enterprise-grade real-time communication platform featuring 1-on-1 & group chats with sub-millisecond delivery, peer-to-peer WebRTC HD audio/video calling, virtualized message lists, and Upstash Redis presence tracking.",
     features: [
-      "Real-time messaging with typing indicators, online presence, and Socket.io Pub/Sub via Redis",
-      "Crystal-clear peer-to-peer audio & video calls powered by WebRTC",
-      "Argon2 password hashing, rate limiting, Helmet security, and deterministic email encryption"
+      "Sub-millisecond messaging via Socket.io with delivery/read receipts, typing indicators, & virtualized scrolling (react-virtuoso)",
+      "Crystal-clear WebRTC audio/video mesh calls with group signaling, floating Picture-in-Picture (PiP), & screen sharing",
+      "Voice notes with interactive audio waveforms & playback speed (1x/1.5x/2x), direct Cloudinary uploads, & Argon2id auth"
     ],
-    stack: ["Next.js 15", "React 19", "Socket.io", "WebRTC", "Prisma", "PostgreSQL", "Redis", "Cloudinary", "Zustand", "Tailwind CSS", "Express.js", "Resend"],
-    github: "https://github.com/ram02krishna/Orbix---Connect-Beyond-Boundaries",
+    stack: ["Next.js 15", "React 19", "Socket.io", "WebRTC", "Express.js", "Prisma", "PostgreSQL", "Upstash Redis", "Tailwind CSS v4", "Zustand", "TanStack Query", "Argon2id", "Resend", "Cloudinary"],
+    github: "https://github.com/ram02krishna/QuickConnect",
     live: "https://orbix-connect-beyond-boundaries.vercel.app/",
   },
   {

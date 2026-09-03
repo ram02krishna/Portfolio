@@ -48,51 +48,62 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "visitor-management",
-    title: "Visitor Management System",
+    id: "iiitn-vms",
+    title: "IIIT Nagpur VMS",
     category: "Full Stack",
     description:
-      "A comprehensive visitor tracking platform featuring real-time updates, QR-based check-ins, and automated multi-role approval workflows.",
+      "A web-based campus access and security management system for IIIT Nagpur unifying visitor registration, 10-floor hostel census, 09:30 PM curfew passes, and optical gate QR verification.",
     fullDescription:
-      "This Visitor Management System is a full-stack web application designed to streamline campus security and guest tracking. It features four distinct user roles (Visitor, Host, Guard, Admin) with specialized dashboards for each. Core functionality includes real-time visit logging via Supabase, automated high-density QR code generation for approved visits, and instant email notifications through EmailJS. The system supports both single and multi-day passes, gate-specific check-in/out logs, and integrated identity verification with photo/ID proof uploads. Administrative tools provide user management, bulk CSV uploads, and live analytics for monitoring campus traffic. Built as a PWA, it offers a mobile-first experience with offline support and intuitive navigation.",
+      "IIIT Nagpur Visitor Management System (VMS) is a comprehensive campus access and security management platform built for the Indian Institute of Information Technology, Nagpur. Built with React 18, TypeScript, Vite, and Tailwind CSS on the frontend, and Node.js, Express, Prisma ORM, and PostgreSQL on the backend, the platform unifies visitor registration, hostel resident outing passes with strict 09:30 PM night curfew tracking, optical gate QR verification, a 10-floor hostel census matrix (Hostel Block A), vehicle parking passes, and automated transactional emails via Resend. The system enforces strict Role-Based Access Control (RBAC) across 6 roles (Admin, Chief Warden, Faculty/Host, Security Guard, Student, and Visitor). It features a touchscreen reception kiosk with webcam badge photo capture, dual-checkpoint optical QR scanning (Main Gate and Hostel Gate), real-time campus capacity telemetry (1,000 safe limit), overstay detection with security escort dispatch, and a campus-wide SOS broadcast beacon.",
     technologies: [
       "React 18",
       "TypeScript",
       "Vite",
       "Tailwind CSS",
-      "Supabase",
-      "Zustand",
-      "React Hook Form",
-      "Zod",
-      "EmailJS",
-      "HTML5 QR Scanner",
-      "PWA",
+      "Node.js",
+      "Express.js",
+      "Prisma",
       "PostgreSQL",
+      "Zustand",
+      "Resend API",
+      "Cloudinary",
+      "HTML5 QR Code",
+      "PWA",
+      "JWT",
+      "React Hook Form",
     ],
     link: "https://visitor-management-system-xi.vercel.app/",
     repo: "https://github.com/ram02krishna/Visitor-Management-System",
     featured: true,
   },
   {
-    id: "orbix",
-    title: "Orbix",
+    id: "quickconnect",
+    title: "QuickConnect",
     category: "Full Stack",
     description:
-      "A full-stack, real-time chat application featuring audio/video calls via WebRTC, real-time messaging using Socket.io, and secure JWT authentication.",
+      "A high-performance real-time communication platform featuring 1-on-1 and group chats, WebRTC audio/video calls, rich media sharing, and Upstash Redis presence tracking.",
     fullDescription:
-      "Orbix is a full-stack, real-time chat application designed to provide seamless and instant communication. It features peer-to-peer audio and video calling powered by WebRTC, real-time messaging with typing indicators and read receipts using Socket.io, and secure JWT authentication. The app boasts a highly responsive UI built with Next.js, React 19, Tailwind CSS, and Framer Motion, along with robust database interactions using Prisma ORM and scalability through Redis.",
+      "QuickConnect is an enterprise-ready real-time communication web application designed for seamless instant messaging and high-definition voice/video calling. Built using Next.js 15 (App Router), React 19, Tailwind CSS v4, Express 5, Prisma ORM with PostgreSQL, Upstash Redis, and Socket.io, QuickConnect provides sub-millisecond message delivery, adaptive WebRTC mesh calls, rich media sharing, and end-to-end security workflows. Key features include 1-on-1 and group chats, real-time delivery and read receipts (single/double checkmarks), typing indicators, high-performance virtualized scrolling with react-virtuoso, floating Picture-in-Picture (PiP) call widgets, in-browser voice note recording with interactive waveforms and speed controls (1x, 1.5x, 2x), direct Cloudinary uploads with client-side compression, state-of-the-art Argon2id password hashing, and Upstash Redis-backed presence tracking with automated disconnect reconciliation.",
     technologies: [
-      "Next.js",
+      "Next.js 15",
       "React 19",
       "Socket.io",
       "WebRTC",
+      "Express 5",
       "Prisma",
       "PostgreSQL",
-      "Redis",
-      "Tailwind CSS",
+      "Upstash Redis",
+      "Tailwind CSS v4",
+      "Zustand 5",
+      "TanStack Query v5",
+      "Argon2id",
+      "Resend",
+      "Cloudinary",
+      "Radix UI",
+      "React Virtuoso",
     ],
-    link: "#",
-    repo: "https://github.com/ram02krishna/ChatApplication",
+    link: "https://orbix-connect-beyond-boundaries.vercel.app/",
+    repo: "https://github.com/ram02krishna/QuickConnect",
     featured: true,
   },
   {
@@ -206,7 +217,12 @@ export const experiences: Experience[] = [
 ];
 
 export function getProject(id: string): Project | undefined {
-  return projects.find((p) => p.id === id);
+  return projects.find(
+    (p) =>
+      p.id === id ||
+      (id === "orbix" && p.id === "quickconnect") ||
+      (id === "visitor-management" && p.id === "iiitn-vms")
+  );
 }
 
 export function getFeaturedProjects(): Project[] {
