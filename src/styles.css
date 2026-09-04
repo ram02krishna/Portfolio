@@ -38,42 +38,40 @@
 }
 
 :root {
+  color-scheme: dark;
   --radius: 0.75rem;
 
-  /* Premium Obsidian/Midnight palette */
-  --background: oklch(0.12 0.015 260);
-  --foreground: oklch(0.98 0.01 250);
-  --card: oklch(0.15 0.02 260 / 0.5);
-  --card-foreground: oklch(0.98 0.01 250);
-  --popover: oklch(0.15 0.02 260);
-  --popover-foreground: oklch(0.98 0.01 250);
+  --background: oklch(0.09 0.014 260);
+  --foreground: oklch(0.985 0.005 250);
+  --card: oklch(0.13 0.018 260 / 0.70);
+  --card-foreground: oklch(0.985 0.005 250);
+  --popover: oklch(0.12 0.016 260);
+  --popover-foreground: oklch(0.985 0.005 250);
 
-  --primary: oklch(0.78 0.16 200); /* electric cyan */
-  --primary-foreground: oklch(0.12 0.015 260);
-  --secondary: oklch(0.20 0.03 260);
-  --secondary-foreground: oklch(0.98 0.01 250);
-  --muted: oklch(0.18 0.02 260);
-  --muted-foreground: oklch(0.70 0.02 260);
-  --accent: oklch(0.68 0.22 305); /* violet */
-  --accent-foreground: oklch(0.98 0.01 250);
+  --primary: oklch(0.80 0.16 200);
+  --primary-foreground: oklch(0.09 0.014 260);
+  --secondary: oklch(0.16 0.022 260 / 0.75);
+  --secondary-foreground: oklch(0.985 0.005 250);
+  --muted: oklch(0.15 0.018 260);
+  --muted-foreground: oklch(0.72 0.015 250);
+  --accent: oklch(0.70 0.22 305);
+  --accent-foreground: oklch(0.985 0.005 250);
   --destructive: oklch(0.65 0.24 25);
-  --destructive-foreground: oklch(0.98 0.01 250);
-  --border: oklch(1 0 0 / 0.08);
+  --destructive-foreground: oklch(0.985 0.005 250);
+  --border: oklch(1 0 0 / 0.10);
   --input: oklch(1 0 0 / 0.10);
-  --ring: oklch(0.78 0.16 200);
+  --ring: oklch(0.80 0.16 200);
 
   --brand-cyan: oklch(0.82 0.16 200);
-  --brand-violet: oklch(0.7 0.22 305);
+  --brand-violet: oklch(0.72 0.22 305);
   --brand-pink: oklch(0.74 0.2 350);
 
-  --gradient-brand: linear-gradient(135deg, oklch(0.82 0.16 200), oklch(0.7 0.22 305) 50%, oklch(0.74 0.2 350));
-  --gradient-radial: radial-gradient(circle at 50% 0%, oklch(0.78 0.16 200 / 0.15), transparent 60%);
-  --shadow-glow: 0 10px 60px -10px oklch(0.78 0.16 200 / 0.35);
-  --shadow-glow-violet: 0 10px 60px -10px oklch(0.7 0.22 305 / 0.4);
-  --glass-bg: oklch(1 0 0 / 0.03);
-  --glass-border: oklch(1 0 0 / 0.08);
+  --gradient-brand: linear-gradient(135deg, oklch(0.82 0.16 200), oklch(0.72 0.22 305) 50%, oklch(0.74 0.2 350));
+  --shadow-glow: 0 10px 30px -5px rgba(0, 0, 0, 0.45);
+  --shadow-glow-violet: 0 10px 30px -5px rgba(0, 0, 0, 0.45);
+  --glass-bg: oklch(1 0 0 / 0.04);
+  --glass-border: oklch(1 0 0 / 0.10);
 
-  /* Syntax colors */
   --code-keyword: #c792ea;
   --code-variable: #82aaff;
   --code-string: #c3e88d;
@@ -82,47 +80,50 @@
   --code-comment: #7c8a9a;
 }
 
+::selection {
+  background-color: oklch(0.80 0.16 200 / 0.35);
+  color: #ffffff;
+}
+
 .light {
-  --background: oklch(0.96 0.01 250);
-  --foreground: oklch(0.15 0.03 265);
-  --card: oklch(1 0 0 / 0.85);
-  --card-foreground: oklch(0.15 0.03 265);
+  color-scheme: light;
+  --background: oklch(0.975 0.005 250);
+  --foreground: oklch(0.12 0.025 260);
+  --card: oklch(1 0 0 / 0.94);
+  --card-foreground: oklch(0.12 0.025 260);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.15 0.03 265);
+  --popover-foreground: oklch(0.12 0.025 260);
   
-  --primary: oklch(0.5 0.16 220);
+  --primary: oklch(0.46 0.18 230);
   --primary-foreground: oklch(0.99 0.005 250);
-  --secondary: oklch(0.93 0.015 250);
-  --secondary-foreground: oklch(0.2 0.03 265);
-  --muted: oklch(0.93 0.015 250);
-  --muted-foreground: oklch(0.38 0.03 260);
-  --accent: oklch(0.5 0.22 305);
+  --secondary: oklch(0.94 0.01 250);
+  --secondary-foreground: oklch(0.15 0.03 260);
+  --muted: oklch(0.93 0.01 250);
+  --muted-foreground: oklch(0.40 0.025 260);
+  --accent: oklch(0.48 0.22 300);
   --accent-foreground: oklch(0.99 0.005 250);
   
-  --border: oklch(0.2 0.03 265 / 0.18);
-  --input: oklch(0.2 0.03 265 / 0.18);
-  --ring: oklch(0.5 0.16 220);
+  --border: oklch(0.15 0.02 260 / 0.12);
+  --input: oklch(0.15 0.02 260 / 0.12);
+  --ring: oklch(0.46 0.18 230);
 
-  /* Deepen brand colors in light mode for better contrast */
-  --brand-cyan: oklch(0.48 0.16 220);
-  --brand-violet: oklch(0.45 0.22 305);
-  --brand-pink: oklch(0.50 0.2 350);
+  --brand-cyan: oklch(0.46 0.18 230);
+  --brand-violet: oklch(0.48 0.22 300);
+  --brand-pink: oklch(0.50 0.20 350);
 
-  --glass-bg: oklch(1 0 0 / 0.75);
-  --glass-border: oklch(0.2 0.03 265 / 0.18);
+  --glass-bg: oklch(1 0 0 / 0.90);
+  --glass-border: oklch(0.15 0.02 260 / 0.12);
 
-  /* Light-mode glow shadows (softer, tinted for white bg) */
-  --shadow-glow: 0 8px 40px -8px oklch(0.5 0.16 220 / 0.25);
-  --shadow-glow-violet: 0 8px 40px -8px oklch(0.5 0.22 305 / 0.30);
-  --gradient-brand: linear-gradient(135deg, oklch(0.48 0.16 220), oklch(0.45 0.22 305) 50%, oklch(0.50 0.2 350));
+  --shadow-glow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  --shadow-glow-violet: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  --gradient-brand: linear-gradient(135deg, oklch(0.46 0.18 230), oklch(0.48 0.22 300) 50%, oklch(0.50 0.20 350));
 
-  /* Syntax colors - Light mode */
-  --code-keyword: #6200ea;
-  --code-variable: #1565c0;
-  --code-string: #1b5e20;
-  --code-property: #bf360c;
-  --code-number: #b71c1c;
-  --code-comment: #546e7a;
+  --code-keyword: #5b21b6;
+  --code-variable: #0369a1;
+  --code-string: #15803d;
+  --code-property: #b45309;
+  --code-number: #b91c1c;
+  --code-comment: #64748b;
 }
 
 @layer base {
@@ -153,13 +154,11 @@
     letter-spacing: -0.02em;
   }
 
-  /* Each section is an independent paint region */
   section {
     contain: paint;
   }
 }
 
-/* View Transitions API styles */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -192,19 +191,18 @@
     border: 1px solid var(--glass-border);
   }
 
-  /* Only show the horizontal scrollbar — suppress the vertical one that conflicts with the native driver */
   .custom-scrollbar::-webkit-scrollbar {
     height: 6px;
-    width: 0px;        /* hide vertical */
+    width: 0px;
   }
   .custom-scrollbar *::-webkit-scrollbar {
     height: 6px;
     width: 0px;
   }
   .custom-scrollbar {
-    scrollbar-width: thin;           /* Firefox */
+    scrollbar-width: thin;
     scrollbar-color: rgba(150,150,150,0.45) transparent;
-    overflow-y: hidden !important;   /* no vertical scrollbar at all */
+    overflow-y: hidden !important;
   }
   .custom-scrollbar::-webkit-scrollbar-track {
     background: transparent;
@@ -218,12 +216,10 @@
     background: rgba(150, 150, 150, 0.75);
   }
 
-  /* Prevent the scrollbar from overlapping the calendar squares */
   .custom-scrollbar .react-activity-calendar > div:first-of-type {
     padding-bottom: 16px !important;
   }
 
-  /* Modern Tooltip Styling for GitHub Calendar */
   .react-activity-calendar__tooltip {
     background-color: var(--background) !important;
     color: var(--foreground) !important;
@@ -238,28 +234,59 @@
   }
 
   .glow-ring {
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.2);
   }
 
-  .gradient-border {
+  .ambient-glow-cyan,
+  .ambient-glow-violet {
+    display: none !important;
+  }
+
+  .bento-card {
+    background: var(--card);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--border);
     position: relative;
+    overflow: hidden;
   }
-  .gradient-border::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    padding: 1px;
-    border-radius: inherit;
+
+  .btn-primary-standard {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
     background: var(--gradient-brand);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.4;
-    transition: opacity 0.25s ease;
-    pointer-events: none;
+    color: var(--primary-foreground);
+    box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.2s ease;
   }
-  .gradient-border:hover::before {
-    opacity: 0.8;
+  .btn-primary-standard:hover {
+    opacity: 0.92;
+  }
+
+  .btn-secondary-standard {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    background: var(--secondary);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: opacity 0.2s ease;
+  }
+  .btn-secondary-standard:hover {
+    opacity: 0.88;
+  }
+
+  .chip-interactive {
+    transition: opacity 0.2s ease;
   }
 
   .grid-bg {
@@ -277,8 +304,8 @@
 
   .reveal {
     opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(20px);
+    transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     will-change: opacity, transform;
   }
   .reveal.in-view {
@@ -294,29 +321,6 @@
   66% { transform: translate(-20px, 20px) scale(0.95); }
 }
 
-@keyframes wave-bob {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-8px) rotate(2deg); }
-}
-
-.wave-icon {
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-  animation: wave-bob 4s ease-in-out infinite;
-  will-change: transform;
-}
-.wave-icon:hover {
-  animation-play-state: paused;
-  transform: translateY(-4px) scale(1.1);
-  box-shadow: 0 0 12px oklch(0.7 0.22 305 / 0.4);
-}
-.wave-icon:nth-child(1) { animation-delay: 0s; }
-.wave-icon:nth-child(2) { animation-delay: 0.25s; }
-.wave-icon:nth-child(3) { animation-delay: 0.5s; }
-.wave-icon:nth-child(4) { animation-delay: 0.75s; }
-.wave-icon:nth-child(5) { animation-delay: 1s; }
-@media (prefers-reduced-motion: reduce) {
-  .wave-icon { animation: none; will-change: auto; }
-}
 @keyframes blink {
   0%, 49% { opacity: 1; }
   50%, 100% { opacity: 0; }
@@ -339,11 +343,6 @@
   animation: premium-gradient 6s ease-in-out infinite;
 }
 
-/* ══════════════════════════════════════════════════
-   Mobile Responsiveness Improvements
-══════════════════════════════════════════════════ */
-
-/* Prevent all horizontal overflow without creating an inner scroll container */
 html {
   overflow-x: hidden;
   max-width: 100%;
@@ -358,7 +357,6 @@ section {
   overflow-x: clip;
 }
 
-/* Hero section — tighten on very small screens */
 @media (max-width: 480px) {
   #hero h1 {
     font-size: 2rem;
@@ -376,7 +374,6 @@ section {
   }
 }
 
-/* About — stack portrait below copy on small screens, ensure portrait doesn't overflow */
 @media (max-width: 767px) {
   #about .grid {
     grid-template-columns: 1fr;
@@ -388,26 +385,19 @@ section {
   }
 }
 
-/* Skills — ensure mobile grid doesn't overflow */
 @media (max-width: 640px) {
   #skills .lg\:hidden {
     grid-template-columns: 1fr;
   }
 }
 
-/* Experience two-column panel — stack on mobile */
 @media (max-width: 767px) {
-  #experience .glass.gradient-border .grid {
-    grid-template-columns: 1fr;
-  }
-
   #experience .flex.flex-col.p-6 {
     border-top: 1px solid var(--border);
     border-left: none !important;
   }
 }
 
-/* Contact — direct contact cards stack on xs */
 @media (max-width: 480px) {
   #contact .grid.sm\:grid-cols-2 {
     grid-template-columns: 1fr;
@@ -418,7 +408,6 @@ section {
   }
 }
 
-/* Footer — stack everything on mobile */
 @media (max-width: 767px) {
   footer .grid.md\:grid-cols-3 {
     grid-template-columns: 1fr;
@@ -433,79 +422,53 @@ section {
   }
 }
 
-/* Navbar — ensure pill stays contained */
 @media (max-width: 400px) {
   nav .text-gradient {
     font-size: 0.95rem;
   }
 }
 
-/* Ensure rounded cards don't clip on mobile */
 @media (max-width: 640px) {
   .rounded-\[2\.5rem\] {
     border-radius: 1.5rem;
   }
-
-  .glass.gradient-border {
-    border-radius: 1.5rem;
-  }
 }
 
-/* ══════════════════════════════════════════════════
-   Light Theme — Targeted Visibility Fixes
-══════════════════════════════════════════════════ */
-
-/* Stronger card surfaces in light mode */
 .light .glass {
   background: oklch(1 0 0 / 0.80);
   border-color: oklch(0.2 0.03 265 / 0.16);
 }
 
-/* Terminal body in light mode — use a visible gray instead of black */
 .light #experience .rounded-xl,
 .light #hero pre {
   background: oklch(0.88 0.01 260 / 0.7) !important;
 }
 
-/* Ensure foreground/90 text is readable in light mode */
 .light .text-foreground\/90 {
   color: oklch(0.15 0.03 265 / 0.92);
 }
 
-/* Chip badges need legible text in light mode */
 .light .text-muted-foreground\/70,
 .light .text-muted-foreground\/60,
 .light .text-muted-foreground\/50 {
   color: oklch(0.35 0.03 260);
 }
 
-/* "or find me on" divider text */
 .light .text-muted-foreground\/50 {
   color: oklch(0.40 0.02 260);
 }
 
-/* Focus area chip text */
 .light .text-foreground\/80 {
   color: oklch(0.18 0.03 265 / 0.85);
 }
 
-/* Section header mono label */
 .light .text-muted-foreground\/80 {
   color: oklch(0.35 0.03 260);
 }
 
-/* Secondary bg sections in light mode — give them a distinct surface */
 .light .bg-secondary\/10,
 .light .bg-secondary\/20,
 .light .bg-secondary\/30,
 .light .bg-secondary\/40 {
   background-color: oklch(0.91 0.015 250 / 0.6);
-}
-
-/* gradient-border glow more visible on light */
-.light .gradient-border::before {
-  opacity: 0.55;
-}
-.light .gradient-border:hover::before {
-  opacity: 0.9;
 }

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Terminal, Code, Github, ArrowUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Github, ArrowUpRight } from "lucide-react";
+import { SiCodeforces, SiLeetcode } from "react-icons/si";
 import { GitHubCalendar } from "react-github-calendar";
 import { format } from "date-fns";
 
-const getTooltipText = (activity: any) => {
+const getTooltipText = (activity: { count: number; date: string }) => {
   const count = activity.count;
   const dateText = format(new Date(activity.date), "MMMM do");
   if (count === 0) return `No contributions on ${dateText}.`;
@@ -13,32 +14,43 @@ const getTooltipText = (activity: any) => {
 const platforms = [
   {
     name: "Codeforces",
-    handle: "ramkrishna",
-    rating: "1197",
-    icon: Terminal,
+    handle: "krishnarammhd",
+    rating: "1201",
+    badge: "Pupil",
+    icon: SiCodeforces,
     href: "https://codeforces.com/profile/krishnarammhd",
-    color: "var(--brand-cyan)",
+    color: "#1F8ACB",
+    tagline: "Algorithms & speed contests",
   },
   {
     name: "LeetCode",
-    handle: "ramkrishna",
+    handle: "ram_02_Krishna",
     rating: "1657",
-    icon: Code,
+    badge: "Top ~15%",
+    icon: SiLeetcode,
     href: "https://leetcode.com/u/ram_02_Krishna/",
-    color: "var(--brand-violet)",
+    color: "#FFA116",
+    tagline: "475+ DSA problems solved",
   },
   {
     name: "GitHub",
-    handle: "ramkrishna",
+    handle: "ram02krishna",
     rating: "Active",
+    badge: "OSS & Projects",
     icon: Github,
     href: "https://github.com/ram02krishna",
     color: "var(--brand-cyan)",
+    tagline: "Backend & DevOps repositories",
   },
 ];
 
 export function CodingPlatforms() {
-  const [theme, setTheme] = useState<"light" | "dark">("dark");
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window !== "undefined") {
+      return document.documentElement.classList.contains("light") ? "light" : "dark";
+    }
+    return "dark";
+  });
   const [selectedYear, setSelectedYear] = useState<number | "last">("last");
 
   useEffect(() => {
@@ -59,96 +71,114 @@ export function CodingPlatforms() {
   }, []);
 
   return (
-    <section id="platforms" className="relative px-4 py-8 sm:py-12">
+    <section id="platforms" className="relative px-4 py-6 sm:py-8">
       <div className="mx-auto max-w-6xl">
-        <div className="reveal mb-8 text-center">
+        <div className="reveal mb-6 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]">// competitive</p>
           <h2 className="mt-2 text-4xl font-bold sm:text-5xl">
             Coding <span className="text-gradient">Platforms.</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Where I sharpen problem-solving skills and put algorithms to the test.
+          <p className="mx-auto mt-3 max-w-xl text-sm sm:text-base text-muted-foreground">
+            Where I sharpen problem-solving skills, optimize algorithmic time complexities, and build daily consistency.
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-5">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {platforms.map((p) => (
             <a
               key={p.name}
               href={p.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="reveal glass gradient-border group relative flex w-full sm:w-[calc(50%-10px)] lg:w-[320px] items-center gap-4 rounded-2xl p-5 transition-all duration-300 shadow-[var(--shadow-glow)] hover:-translate-y-1 hover:shadow-[var(--shadow-glow-violet)]"
+              className="reveal bento-card group relative flex flex-col justify-between rounded-3xl p-6"
             >
-              <div
-                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-border bg-secondary/40 transition-colors duration-200 group-hover:border-[color:var(--brand-cyan)]/40 group-hover:bg-secondary/60"
-                style={{ color: p.color }}
-              >
-                <p.icon className="h-5 w-5" />
-              </div>
-              <div className="min-w-0 flex-1">
+              <div>
                 <div className="flex items-center justify-between">
-                  <h3 className="font-display text-lg font-semibold">{p.name}</h3>
-                  <span
-                    className="font-mono text-xs font-medium"
+                  <div
+                    className="flex h-12 w-12 items-center justify-center rounded-2xl border border-border/60 bg-secondary/50 transition-colors duration-200 group-hover:border-[color:var(--brand-cyan)]/40 group-hover:bg-secondary"
                     style={{ color: p.color }}
                   >
-                    {p.rating}
+                    <p.icon className="h-5 w-5" />
+                  </div>
+                  <span
+                    className="rounded-full border border-border/60 bg-secondary/50 px-3 py-1 font-mono text-xs font-semibold"
+                    style={{ color: p.color }}
+                  >
+                    {p.badge}
                   </span>
                 </div>
-                <div className="mt-1 flex items-center gap-1 text-sm text-muted-foreground transition-colors duration-200 group-hover:text-foreground">
-                  View Profile
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+
+                <div className="mt-5">
+                  <div className="flex items-baseline justify-between">
+                    <h3 className="font-display text-xl font-bold text-foreground">{p.name}</h3>
+                    <span className="font-mono text-lg font-bold" style={{ color: p.color }}>
+                      {p.rating}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                    {p.tagline}
+                  </p>
                 </div>
+              </div>
+
+              <div className="mt-6 flex items-center justify-between border-t border-border/40 pt-4 text-xs font-medium text-muted-foreground transition-colors duration-200 group-hover:text-foreground">
+                <span className="font-mono text-[11px]">@{p.handle}</span>
+                <span className="flex items-center gap-1">
+                  View Profile
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </span>
               </div>
             </a>
           ))}
         </div>
 
-        {/* GitHub Calendar */}
-        <div className="reveal mt-10 flex flex-col items-center">
-          <h3 className="mb-6 font-display text-xl font-semibold">
-            GitHub <span className="text-gradient">Contributions.</span>
-          </h3>
-          <div className="flex w-full max-w-[1050px] flex-col gap-6 lg:flex-row">
-            <div className="glass custom-scrollbar flex-1 overflow-x-auto rounded-2xl p-6 shadow-[var(--shadow-glow)] md:p-8">
-              <div className="flex min-w-[750px] justify-center">
-                <GitHubCalendar 
-                  username="ram02krishna" 
-                  colorScheme={theme}
-                  theme={{
-                    light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
-                    dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
-                  }}
-                  year={selectedYear}
-                  fontSize={12}
-                  blockSize={12}
-                  blockMargin={4}
-                  tooltips={{
-                    activity: {
-                      text: (activity) => getTooltipText(activity),
-                    },
-                  }}
-                />
+        <div className="reveal mt-8 flex flex-col items-center">
+          <div className="bento-card custom-scrollbar w-full rounded-3xl p-5 sm:p-7 md:p-8">
+            <div className="mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="text-center sm:text-left">
+                <h3 className="font-display text-xl font-semibold text-foreground">
+                  GitHub Contributions
+                </h3>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  Public commit activity &amp; consistency graph
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-1.5 rounded-2xl border border-border/50 bg-secondary/30 p-1.5">
+                {(["last", 2026, 2025, 2024] as const).map((year) => (
+                  <button
+                    key={year}
+                    onClick={() => setSelectedYear(year)}
+                    className={`rounded-xl px-3.5 py-1.5 text-xs font-medium transition-colors duration-200 ${
+                      selectedYear === year
+                        ? "bg-[color:var(--brand-cyan)] text-background font-semibold shadow-sm"
+                        : "text-muted-foreground hover:bg-secondary/60 hover:text-foreground"
+                    }`}
+                  >
+                    {year === "last" ? "Last Year" : year}
+                  </button>
+                ))}
               </div>
             </div>
-            
-            <div className="flex flex-row gap-2 lg:w-32 lg:flex-col">
-              {(["last", 2026, 2025, 2024] as const).map((year) => (
-                <button
-                  key={year}
-                  onClick={() => setSelectedYear(year)}
-                  className={`rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                    selectedYear === year
-                      ? theme === "dark" 
-                        ? "bg-[#1f6feb] text-white" 
-                        : "bg-[#0969da] text-white"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  {year === "last" ? "Last Year" : year}
-                </button>
-              ))}
+
+            <div className="flex w-full justify-center overflow-x-auto pb-1">
+              <GitHubCalendar 
+                username="ram02krishna" 
+                colorScheme={theme}
+                theme={{
+                  light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
+                  dark: ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
+                }}
+                year={selectedYear}
+                fontSize={12}
+                blockSize={12.5}
+                blockMargin={3.5}
+                tooltips={{
+                  activity: {
+                    text: (activity) => getTooltipText(activity),
+                  },
+                }}
+              />
             </div>
           </div>
         </div>

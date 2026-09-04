@@ -7,7 +7,6 @@ export function AnimatedBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    // Respect prefers-reduced-motion
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const ctx = canvas.getContext("2d", { alpha: true });
@@ -27,7 +26,6 @@ export function AnimatedBackground() {
       canvas.width = w * dpr;
       canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      // Fewer particles for smoother frame rate
       const count = Math.min(30, Math.floor((w * h) / 50000));
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * w,
@@ -41,12 +39,10 @@ export function AnimatedBackground() {
     const LINK_DIST = 110;
     const LINK_DIST_SQ = LINK_DIST * LINK_DIST;
 
-    // Batched gradient stops — reuse a single gradient descriptor
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
 
-      // Update + draw particles in one loop
-      ctx.fillStyle = "rgba(120, 220, 255, 0.5)";
+      ctx.fillStyle = "rgba(120, 220, 255, 0.4)";
       for (const p of particles) {
         p.x += p.vx;
         p.y += p.vy;
@@ -57,13 +53,9 @@ export function AnimatedBackground() {
         ctx.fill();
       }
 
-      // ── Batch all link lines into a single path per alpha bucket ──
-      // Group by rounded alpha to minimise strokeStyle changes
       ctx.lineWidth = 0.5;
-
-      // Single-pass: accumulate path, set one strokeStyle per draw
       ctx.beginPath();
-      ctx.strokeStyle = "rgba(160, 130, 255, 0.12)";
+      ctx.strokeStyle = "rgba(160, 130, 255, 0.1)";
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const a = particles[i];
@@ -109,37 +101,9 @@ export function AnimatedBackground() {
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
       <div className="absolute inset-0 grid-bg" />
-      {/* Orbs use CSS animation (compositor-only, no JS cost) */}
-      <div
-        className="absolute -left-20 top-1/4 h-[450px] w-[450px] rounded-full blur-3xl opacity-25"
-        style={{
-          background: "radial-gradient(circle, oklch(0.82 0.16 200 / 0.3), transparent 60%)",
-          animation: "float-orb 22s ease-in-out infinite",
-          willChange: "transform",
-          contain: "strict",
-        }}
-      />
-      <div
-        className="absolute -top-40 left-1/2 h-[550px] w-[550px] -translate-x-1/2 rounded-full blur-3xl opacity-35"
-        style={{
-          background: "radial-gradient(circle, oklch(0.78 0.16 200 / 0.4), transparent 60%)",
-          animation: "float-orb 16s ease-in-out infinite",
-          willChange: "transform",
-          contain: "strict",
-        }}
-      />
-      <div
-        className="absolute bottom-0 right-0 h-[450px] w-[450px] rounded-full blur-3xl opacity-25"
-        style={{
-          background: "radial-gradient(circle, oklch(0.7 0.22 305 / 0.4), transparent 60%)",
-          animation: "float-orb 20s ease-in-out infinite reverse",
-          willChange: "transform",
-          contain: "strict",
-        }}
-      />
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 h-full w-full opacity-50"
+        className="absolute inset-0 h-full w-full opacity-40"
         style={{ willChange: "contents" }}
       />
     </div>

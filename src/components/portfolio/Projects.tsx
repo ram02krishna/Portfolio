@@ -81,9 +81,9 @@ const projects: Project[] = [
 
 export function Projects() {
   return (
-    <section id="projects" className="relative px-4 py-10 sm:py-12">
+    <section id="projects" className="relative px-4 py-6 sm:py-8">
       <div className="mx-auto max-w-6xl">
-        <div className="reveal mb-8 text-center">
+        <div className="reveal mb-6 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]">// projects</p>
           <h2 className="mt-2 text-4xl font-bold sm:text-5xl">
             Selected <span className="text-gradient">work</span>
@@ -98,7 +98,7 @@ export function Projects() {
           viewport={{ once: true, margin: "-100px" }}
         >
           {projects.map((p, i) => {
-            const MAX_STACKS = 4;
+            const MAX_STACKS = 5;
             const visibleStacks = p.stack.slice(0, MAX_STACKS);
             const extraStacks = p.stack.slice(MAX_STACKS);
 
@@ -108,57 +108,83 @@ export function Projects() {
                 key={p.title}
                 className="h-full"
               >
-                <div className="glass gradient-border relative flex h-full flex-col rounded-3xl p-6 shadow-[var(--shadow-glow)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-glow-violet)]">
-                  <div className="mb-4 flex items-start justify-between">
-                    <span className="font-mono text-xs text-muted-foreground">0{i + 1} · {p.tag}</span>
-                    <div className="flex gap-2 opacity-100">
-                      {p.github && (
-                        <a href={p.github} aria-label="GitHub" className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary transition-colors duration-200 hover:bg-[color:var(--brand-cyan)]/20 hover:text-[color:var(--brand-cyan)]">
-                          <Github className="h-3.5 w-3.5" />
-                        </a>
+                <div className="bento-card relative flex h-full flex-col rounded-3xl overflow-hidden">
+                  <div className="flex items-center justify-between border-b border-border/50 bg-secondary/50 px-5 py-3 backdrop-blur-md">
+                    <div className="flex items-center gap-1.5">
+                      <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]/80" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]/80" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]/80" />
+                    </div>
+                    <div className="font-mono text-[11px] text-muted-foreground/70">
+                      0{i + 1} — {p.tag.toLowerCase()}.app
+                    </div>
+                    <span className="flex items-center gap-1.5 text-[10px] font-mono text-muted-foreground/80">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                      Live
+                    </span>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-6 sm:p-7">
+                    <div className="mb-2 flex items-start justify-between gap-4">
+                      <h3 className="font-display text-2xl font-bold tracking-tight text-foreground">
+                        {p.title}
+                      </h3>
+                    </div>
+
+                    <p className="text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+                    
+                    <div className="mt-4 mb-4 flex-1 space-y-2.5 rounded-2xl bg-secondary/20 p-4 border border-border/40 text-xs sm:text-sm text-muted-foreground">
+                      {p.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-start gap-2.5">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand-cyan)]" />
+                          <span className="leading-relaxed">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {visibleStacks.map((s) => (
+                        <span key={s} className="rounded-lg border border-border/60 bg-secondary/40 px-2.5 py-1 text-[11px] font-medium text-foreground/85">
+                          {s}
+                        </span>
+                      ))}
+                      {extraStacks.length > 0 && (
+                        <span
+                          title={extraStacks.join(", ")}
+                          className="cursor-help rounded-lg border border-border/60 bg-secondary/40 px-2.5 py-1 text-[11px] font-medium text-[color:var(--brand-violet)]"
+                        >
+                          +{extraStacks.length} more
+                        </span>
                       )}
-                      {p.live && (
-                        <a href={p.live} aria-label="Live" className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary transition-colors duration-200 hover:bg-[color:var(--brand-violet)]/20 hover:text-[color:var(--brand-violet)]">
+                    </div>
+
+                    <div className="mt-6 flex items-center justify-between gap-3 border-t border-border/50 pt-5">
+                      {p.live ? (
+                        <a
+                          href={p.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-primary-standard px-4 py-2 text-xs"
+                        >
                           <ExternalLink className="h-3.5 w-3.5" />
+                          Live Preview
+                        </a>
+                      ) : (
+                        <div />
+                      )}
+
+                      {p.github && (
+                        <a
+                          href={p.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-secondary-standard px-4 py-2 text-xs"
+                        >
+                          <Github className="h-3.5 w-3.5" />
+                          Source Code
                         </a>
                       )}
                     </div>
-                  </div>
-
-                  <h3 className="font-display text-xl font-semibold">{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
-                  
-                  <ul className="mt-4 mb-4 flex-1 space-y-2 text-sm text-muted-foreground">
-                    {p.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[color:var(--brand-cyan)] opacity-70" />
-                        <span className="leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-5 flex flex-wrap gap-1.5">
-                    {visibleStacks.map((s) => (
-                      <span key={s} className="rounded-full border border-border bg-secondary/40 px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-                        {s}
-                      </span>
-                    ))}
-                    {extraStacks.length > 0 && (
-                      <span
-                        title={extraStacks.join(", ")}
-                        className="cursor-help rounded-full border border-border bg-secondary/40 px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wide"
-                        style={{ color: "var(--brand-violet)" }}
-                      >
-                        +{extraStacks.length}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="mt-5 flex items-center justify-between border-t border-border pt-4 text-xs">
-                    <span className="text-muted-foreground">View Details</span>
-                    <a href={p.live ?? "#"} aria-label="Open project" className="flex h-7 w-7 items-center justify-center rounded-full bg-secondary/60 transition-colors duration-200 hover:bg-[color:var(--brand-cyan)]/20 hover:text-[color:var(--brand-cyan)]">
-                      <ExternalLink className="h-3.5 w-3.5" />
-                    </a>
                   </div>
                 </div>
               </motion.article>
@@ -171,7 +197,7 @@ export function Projects() {
             href="https://github.com/ram02krishna"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-12 items-center gap-2 rounded-full border border-border bg-secondary/30 px-8 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-200 hover:border-[color:var(--brand-cyan)]/50 hover:bg-secondary/60 hover:text-foreground hover:shadow-[var(--shadow-glow)]"
+            className="btn-secondary-standard h-12 px-8 text-sm"
           >
             <Github className="h-4 w-4" />
             <span>View all on GitHub</span>

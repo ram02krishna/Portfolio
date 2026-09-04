@@ -17,7 +17,6 @@ function App() {
   useReveal();
 
   useEffect(() => {
-    // Force scroll to top on refresh
     window.scrollTo(0, 0);
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';

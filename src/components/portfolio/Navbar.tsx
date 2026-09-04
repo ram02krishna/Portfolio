@@ -38,7 +38,7 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 15);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -46,70 +46,95 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-2" : "py-4"
+      className={`fixed inset-x-0 top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? "border-b border-border/80 bg-background/85 shadow-md backdrop-blur-xl"
+          : "border-b border-border/40 bg-background/60 backdrop-blur-lg"
       }`}
     >
-      <div className="mx-auto max-w-6xl px-4">
-        <nav className={`bg-background border border-border flex items-center justify-between rounded-2xl px-4 py-3 transition-all ${scrolled ? "shadow-lg" : ""}`}>
-          <a href="#hero" className="flex items-center gap-2 font-display text-lg font-bold">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg" style={{ background: "var(--gradient-brand)" }}>
-              <Code2 className="h-4 w-4 text-background" />
-            </span>
-            <span className="text-gradient">Ram.dev</span>
-          </a>
+      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <a
+          href="#hero"
+          className="flex items-center gap-2.5 font-display text-lg font-bold transition-opacity hover:opacity-90"
+        >
+          <span
+            className="flex h-8 w-8 items-center justify-center rounded-lg shadow-sm"
+            style={{ background: "var(--gradient-brand)" }}
+          >
+            <Code2 className="h-4 w-4 text-background" />
+          </span>
+          <span className="text-gradient font-bold tracking-tight">Ram Krishna</span>
+        </a>
 
-          <ul className="hidden items-center gap-1 md:flex">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  className={`group relative rounded-lg px-3 py-2 text-sm transition-colors duration-200 ${activeSection === l.href.substring(1) ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`}
-                >
-                  {l.label}
-                  <span className={`absolute inset-x-3 -bottom-1 h-0.5 rounded-full bg-[color:var(--brand-cyan)] transition-transform duration-200 ${activeSection === l.href.substring(1) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`} />
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
-            <button
-              className="bg-secondary/50 border border-border inline-flex h-10 w-10 items-center justify-center rounded-full md:hidden"
-              onClick={() => setOpen((v) => !v)}
-              aria-label="Menu"
-            >
-              {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-            </button>
-          </div>
+        <nav className="hidden items-center gap-1 md:flex">
+          {links.map((l) => {
+            const isActive = activeSection === l.href.substring(1);
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`relative rounded-full px-3.5 py-1.5 text-sm font-medium transition-all duration-200 ${
+                  isActive
+                    ? "bg-secondary text-foreground shadow-sm"
+                    : "text-muted-foreground hover:bg-secondary/40 hover:text-foreground"
+                }`}
+              >
+                {l.label}
+              </a>
+            );
+          })}
         </nav>
 
-        <AnimatePresence>
-          {open && (
-            <motion.div 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="bg-background border border-border mt-2 rounded-2xl p-3 md:hidden overflow-hidden origin-top"
-            >
-              <ul className="flex flex-col">
-                {links.map((l) => (
-                  <li key={l.href}>
-                    <a
-                      href={l.href}
-                      onClick={() => setOpen(false)}
-                      className={`block rounded-lg px-3 py-3 text-sm transition-colors duration-200 ${activeSection === l.href.substring(1) ? "text-foreground bg-secondary/50 font-medium" : "text-muted-foreground hover:text-foreground hover:bg-secondary/30"}`}
-                    >
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          <ThemeToggle />
+
+          <button
+            className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-border/70 bg-secondary/50 text-foreground transition-colors hover:bg-secondary md:hidden"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
+        </div>
       </div>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="border-b border-border/80 bg-background/95 backdrop-blur-2xl md:hidden overflow-hidden"
+          >
+            <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6">
+              <ul className="flex flex-col space-y-1">
+                {links.map((l) => {
+                  const isActive = activeSection === l.href.substring(1);
+                  return (
+                    <li key={l.href}>
+                      <a
+                        href={l.href}
+                        onClick={() => setOpen(false)}
+                        className={`flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
+                          isActive
+                            ? "bg-secondary text-foreground font-semibold"
+                            : "text-muted-foreground hover:bg-secondary/40 hover:text-foreground"
+                        }`}
+                      >
+                        <span>{l.label}</span>
+                        {isActive && (
+                          <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--brand-cyan)]" />
+                        )}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

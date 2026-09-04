@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Xarrow, { Xwrapper } from "react-xarrows";
-import { motion } from "framer-motion";
 import { FaAws } from "react-icons/fa";
 import {
   SiReact, SiTailwindcss, SiFramer,
@@ -96,10 +95,8 @@ export function Skills() {
   const [mounted, setMounted] = useState(false);
   
   useEffect(() => {
-    // Initial mount with slight delay to let layout settle
     const timer = setTimeout(() => setMounted(true), 200);
 
-    // Debounced resize — destroy arrows, wait for resize to finish, then remount once
     let resizeTimer: ReturnType<typeof setTimeout>;
     const handleResize = () => {
       setMounted(false);
@@ -116,17 +113,16 @@ export function Skills() {
   }, []);
 
   return (
-    <section id="skills" className="relative px-4 py-8 sm:py-12 overflow-hidden">
+    <section id="skills" className="relative px-4 py-6 sm:py-8 overflow-hidden">
       <div className="mx-auto max-w-7xl">
-        <div className="reveal mb-8 text-center">
+        <div className="reveal mb-6 text-center">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]">// tools</p>
           <h2 className="mt-2 text-4xl font-bold sm:text-5xl">
             the <span className="text-gradient">Tech Stack</span> I use
           </h2>
         </div>
 
-        {/* Desktop View: Connected Diagram */}
-        <div className="hidden lg:block relative w-full overflow-x-auto pb-10">
+        <div className="hidden lg:block relative w-full overflow-x-auto pb-2">
           <Xwrapper>
             <div className="flex min-w-[1200px] justify-between px-4">
               {columns.map((col, i) => (
@@ -138,15 +134,12 @@ export function Skills() {
                   <div className={`flex flex-col gap-10 ${i % 2 !== 0 && i !== columns.length - 1 ? 'mt-16' : ''}`}>
                     {col.nodes.map((node) => (
                       <div key={node.id} id={node.id} className="relative z-10 w-44">
-                        <motion.div
-                          className="glass gradient-border relative flex w-full items-center gap-4 rounded-xl px-5 py-3.5 shadow-[var(--shadow-glow)]"
-                        >
-                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent to-white/5 opacity-0 transition-opacity duration-300" />
+                        <div className="bento-card relative flex w-full items-center gap-4 rounded-xl px-5 py-3.5 cursor-default">
                           <div className="flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300">
                             <node.icon className="h-5 w-5" style={{ color: node.color }} />
                           </div>
                           <span className="text-sm font-semibold text-foreground/90 transition-colors duration-300">{node.label}</span>
-                        </motion.div>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -172,16 +165,15 @@ export function Skills() {
           </Xwrapper>
         </div>
         
-        {/* Mobile View: Grid Fallback */}
         <div className="lg:hidden grid gap-6 sm:grid-cols-2">
           {columns.map((col) => (
-            <div key={col.title} className="glass gradient-border rounded-3xl p-6 shadow-[var(--shadow-glow)]">
+            <div key={col.title} className="bento-card rounded-3xl p-6">
               <h3 className="mb-4 font-mono text-xs font-bold tracking-[0.1em] text-muted-foreground uppercase">
                 {col.title}
               </h3>
               <div className="flex flex-col gap-3">
                 {col.nodes.map((node) => (
-                  <div key={node.id} className="flex items-center gap-3 rounded-xl bg-secondary/30 px-4 py-3">
+                  <div key={node.id} className="chip-interactive flex items-center gap-3 rounded-xl border border-border/40 bg-secondary/40 px-4 py-3 cursor-default">
                     <node.icon className="h-5 w-5" style={{ color: node.color }} />
                     <span className="text-sm font-medium text-foreground">{node.label}</span>
                   </div>

@@ -19,7 +19,6 @@ const socials = [
 export function Footer() {
   return (
     <footer className="relative border-t border-border px-4 pb-6 pt-10">
-      {/* gradient top accent */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-px"
         style={{ background: "linear-gradient(to right, transparent, var(--brand-violet), var(--brand-cyan), transparent)" }}
@@ -27,13 +26,12 @@ export function Footer() {
 
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 md:grid-cols-3">
-          {/* Brand */}
           <div>
             <h3 className="flex items-center gap-2 font-display text-3xl font-bold">
               <span className="flex h-8 w-8 items-center justify-center rounded-lg" style={{ background: "var(--gradient-brand)" }}>
                 <Code2 className="h-4 w-4 text-background" />
               </span>
-              <span className="text-gradient">Ram.dev</span>
+              <span className="text-gradient">Ram Krishna</span>
             </h3>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Architecting resilient backends and building reliable DevOps pipelines with a focus on engineering excellence and scalable infrastructure.
@@ -43,8 +41,10 @@ export function Footer() {
                 <a
                   key={s.label}
                   href={s.href}
+                  target={s.href.startsWith("http") ? "_blank" : undefined}
+                  rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   aria-label={s.label}
-                  className="wave-icon flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 text-foreground transition-all duration-200 hover:text-[color:var(--brand-violet)] hover:border-[color:var(--brand-violet)]/50 hover:-translate-y-0.5"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 text-foreground transition-colors duration-200 hover:text-[color:var(--brand-violet)] hover:border-[color:var(--brand-violet)]/50"
                 >
                   <s.icon className="h-4 w-4" />
                 </a>
@@ -52,7 +52,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Explore */}
           <div className="md:col-span-1">
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-foreground">Explore</p>
             <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
@@ -60,16 +59,14 @@ export function Footer() {
                 <a
                   key={l.label}
                   href={l.href}
-                  className="group flex items-center text-muted-foreground transition-all duration-200 hover:text-[color:var(--brand-cyan)]"
+                  className="text-muted-foreground transition-colors duration-200 hover:text-foreground"
                 >
-                  <span className="mr-2 h-px w-0 bg-[color:var(--brand-cyan)] transition-all duration-200 group-hover:w-3" />
                   {l.label}
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Stay in touch */}
           <div>
             <p className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-foreground">Stay in touch</p>
             <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
@@ -77,8 +74,7 @@ export function Footer() {
             </p>
             <a
               href="#contact"
-              className="animate-gradient-flow mt-5 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-background shadow-[var(--shadow-glow-violet)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)]"
-              style={{ background: "var(--gradient-brand)" }}
+              className="btn-primary-standard mt-5 px-5 py-2.5 text-sm"
             >
               Start a Conversation <Mail className="h-4 w-4" />
             </a>

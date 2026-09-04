@@ -1,27 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/profile.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ram Krishna — Backend & DevOps Engineer</title>
-    <meta name="description" content="Portfolio of Ram Krishna, a backend and DevOps engineer building scalable APIs, CI/CD pipelines, and cloud infrastructure with Node.js, Docker, AWS, and more." />
+    <meta name="color-scheme" content="dark light" />
+    <title>Ram Krishna</title>
+    <meta name="description" content="Portfolio of Ram Krishna, an SDE, Backend, and DevOps Engineer building scalable systems, high-performance APIs, CI/CD pipelines, and cloud infrastructure." />
 
-    <!-- DNS prefetch for external resources -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var isLight = stored === "light";
+          var docEl = document.documentElement;
+          if (isLight) {
+            docEl.classList.add("light");
+            docEl.classList.remove("dark");
+            docEl.style.backgroundColor = "#f8fafc";
+            docEl.style.colorScheme = "light";
+          } else {
+            docEl.classList.add("dark");
+            docEl.classList.remove("light");
+            docEl.style.backgroundColor = "#090d15";
+            docEl.style.colorScheme = "dark";
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      html.dark, html.dark body {
+        background-color: #090d15 !important;
+        color: #f7f9fd !important;
+      }
+      html.light, html.light body {
+        background-color: #f8fafc !important;
+        color: #0f172a !important;
+      }
+    </style>
+
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://github.com" />
 
-    <!-- Preconnect for Google Fonts — critical for font loading speed -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Fonts with display=swap to avoid FOIT (flash of invisible text) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Preload the profile image so it renders without flash -->
     <link rel="preload" as="image" href="/profile.png" />
   </head>
   <body>
