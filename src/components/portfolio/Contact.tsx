@@ -70,14 +70,14 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="bento-card rounded-[2.5rem] p-6 sm:p-10 mb-6"
+          className="bento-card rounded-[2.5rem] p-5 sm:p-8 lg:p-10 mb-6"
         >
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2">
             {direct.map(({ icon: Icon, label, value, href, color, bg }) => (
               <a
                 key={label}
                 href={href}
-                className="group flex items-center gap-4 rounded-2xl border border-border/40 p-4 sm:p-5 transition-all duration-200 hover:border-[color:var(--brand-cyan)]/50 hover:bg-secondary/60"
+                className="group flex items-center gap-3 sm:gap-4 rounded-2xl border border-border/40 p-3.5 sm:p-5 transition-all duration-200 hover:border-[color:var(--brand-cyan)]/50 hover:bg-secondary/60"
                 style={{ background: bg }}
               >
                 <div
@@ -87,8 +87,8 @@ export function Contact() {
                   <Icon className="h-5 w-5" style={{ color }} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/70">{label}</p>
-                  <p className="mt-0.5 truncate text-sm font-medium text-foreground/90 transition-colors group-hover:text-foreground">
+                  <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/70">{label}</p>
+                  <p className="mt-0.5 truncate text-xs sm:text-sm font-medium text-foreground/90 transition-colors group-hover:text-foreground">
                     {value}
                   </p>
                 </div>
@@ -103,29 +103,30 @@ export function Contact() {
             <div className="h-px flex-1 bg-border/40" />
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-3">
             {socials.map(({ icon: Icon, label, handle, href, color, bg, border }) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center gap-3 rounded-2xl border p-5 text-center transition-all duration-200 hover:border-[color:var(--brand-cyan)]/50 hover:bg-secondary/60"
+                className="group flex flex-row sm:flex-col items-center sm:items-center gap-4 sm:gap-3 rounded-2xl border p-4 sm:p-5 text-left sm:text-center transition-all duration-200 hover:border-[color:var(--brand-cyan)]/50 hover:bg-secondary/60"
                 style={{ background: bg, borderColor: border }}
               >
                 <div
-                  className="flex h-12 w-12 items-center justify-center rounded-xl border border-border/20"
+                  className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl border border-border/20"
                   style={{ background: bg }}
                 >
-                  <Icon className="h-6 w-6" style={{ color }} />
+                  <Icon className="h-5 w-5 sm:h-6 sm:w-6" style={{ color }} />
                 </div>
-                <div>
+                <div className="flex-1 sm:flex-none">
                   <p className="text-sm font-semibold text-foreground/90">{label}</p>
                   <p className="mt-0.5 font-mono text-xs text-muted-foreground/70">{handle}</p>
                 </div>
-                <span className="flex items-center gap-1 rounded-full border border-border/30 px-3 py-1 text-[10px] font-medium text-muted-foreground/60 transition-colors duration-200 group-hover:border-border/60 group-hover:text-foreground/70">
+                <span className="hidden sm:flex items-center gap-1 rounded-full border border-border/30 px-3 py-1 text-[10px] font-medium text-muted-foreground/60 transition-colors duration-200 group-hover:border-border/60 group-hover:text-foreground/70">
                   View Profile <ArrowUpRight className="h-3 w-3" />
                 </span>
+                <ArrowUpRight className="sm:hidden h-4 w-4 shrink-0 text-muted-foreground/40 group-hover:text-foreground/70 transition-colors duration-200" />
               </a>
             ))}
           </div>
@@ -134,7 +135,7 @@ export function Contact() {
         <div className="flex justify-center">
           <a
             href="mailto:krishnarammhd@gmail.com"
-            className="btn-primary-standard px-8 py-4 text-base"
+            className="btn-primary-standard w-full justify-center px-8 py-4 text-base sm:w-auto"
           >
             <Send className="h-4 w-4" />
             Send me an email

@@ -52,14 +52,14 @@ export function Experience() {
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="bento-card rounded-[2.5rem] overflow-hidden"
         >
-          <div className="grid md:grid-cols-2 gap-0">
-            <div className="flex flex-col justify-center gap-6 p-6 sm:p-10 border-b md:border-b-0 md:border-r border-border/40">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <div className="flex flex-col justify-center gap-5 p-5 sm:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-border/40">
               <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-secondary/60 px-4 py-2 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] shadow-sm backdrop-blur-sm" style={{ color: "var(--brand-violet)" }}>
                 Present · Available
               </span>
 
               <div>
-                <h3 className="text-2xl font-bold sm:text-3xl text-foreground/90 leading-snug">
+                <h3 className="text-xl font-bold sm:text-2xl lg:text-3xl text-foreground/90 leading-snug">
                   Open to SDE, Backend &amp; DevOps Roles
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
@@ -86,7 +86,7 @@ export function Experience() {
               </div>
             </div>
 
-            <div className="flex flex-col justify-center gap-6 p-6 sm:p-8 bg-secondary/10">
+            <div className="flex flex-col justify-center gap-5 p-5 sm:p-7 lg:p-8 bg-secondary/10">
               <div className="rounded-2xl border border-border/40 overflow-hidden">
                 <div className="flex items-center justify-between border-b border-border/50 bg-secondary/80 px-5 py-3 backdrop-blur-md">
                   <div className="flex items-center gap-2">
@@ -100,7 +100,7 @@ export function Experience() {
                   <div className="w-[52px]" />
                 </div>
 
-                <div className="bg-secondary/40 dark:bg-black/40 p-4 sm:p-5 font-mono text-[11px] sm:text-xs leading-6 overflow-x-auto">
+                <div className="bg-secondary/40 dark:bg-black/40 p-3 sm:p-5 font-mono text-[10px] sm:text-xs leading-5 sm:leading-6 overflow-x-auto">
                   <motion.div
                     variants={containerVariants}
                     initial="hidden"
@@ -109,7 +109,7 @@ export function Experience() {
                     className="space-y-1"
                   >
                     {terminalLines.map((line, i) => (
-                      <motion.div key={i} variants={lineVariants} className="flex gap-2 whitespace-nowrap">
+                      <motion.div key={i} variants={lineVariants} className="flex gap-2 min-w-0">
                         {line.prefix && (
                           <span style={{ color: "var(--brand-cyan)" }}>{line.prefix}</span>
                         )}
@@ -117,10 +117,10 @@ export function Experience() {
                           <span className="text-foreground/90">{line.text}</span>
                         )}
                         {line.type === "out" && (
-                          <span className="text-muted-foreground pl-3">{line.text}</span>
+                          <span className="text-muted-foreground pl-3 break-words min-w-0">{line.text}</span>
                         )}
                         {line.type === "out-green" && (
-                          <span className="pl-3" style={{ color: "#28c840" }}>{line.text}</span>
+                          <span className="pl-3 break-words min-w-0" style={{ color: "#28c840" }}>{line.text}</span>
                         )}
                       </motion.div>
                     ))}
@@ -135,7 +135,7 @@ export function Experience() {
 
               <a
                 href="#contact"
-                className="btn-primary-standard px-6 py-3 text-sm"
+                className="btn-primary-standard w-full justify-center px-6 py-3 text-sm sm:w-auto"
               >
                 <Zap className="h-4 w-4" />
                 Let's work together
