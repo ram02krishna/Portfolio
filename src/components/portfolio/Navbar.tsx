@@ -44,6 +44,25 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close the mobile menu and smoothly scroll to the target section.
+  // We wait 280 ms (slightly longer than the exit animation at 250 ms) so the
+  // overflow-hidden menu panel is fully collapsed before the scroll fires –
+  // otherwise the panel blocks the viewport calculation and the page doesn't
+  // move to the right position.
+  const handleMobileNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string
+  ) => {
+    e.preventDefault();
+    setOpen(false);
+    setTimeout(() => {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 280);
+  };
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 w-full transition-all duration-300 ${
@@ -111,11 +130,12 @@ export function Navbar() {
               <ul className="flex flex-col space-y-1">
                 {links.map((l) => {
                   const isActive = activeSection === l.href.substring(1);
+                  const sectionId = l.href.substring(1);
                   return (
                     <li key={l.href}>
                       <a
                         href={l.href}
-                        onClick={() => setOpen(false)}
+                        onClick={(e) => handleMobileNavClick(e, sectionId)}
                         className={`flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${
                           isActive
                             ? "bg-secondary text-foreground font-semibold"
