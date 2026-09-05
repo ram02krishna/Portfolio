@@ -139,7 +139,7 @@ export function About() {
                         Indian Institute of Information Technology, Nagpur
                       </h4>
                       <p className="text-xs sm:text-sm text-muted-foreground">
-                        B.Tech in Computer Science &amp; Engineering <span className="text-foreground/80 font-mono text-xs">(CGPA: 7.05)</span>
+                        B.Tech in Computer Science &amp; Engineering
                       </p>
                     </div>
                     <span className="shrink-0 rounded-full border border-border/70 bg-secondary/60 px-2.5 py-0.5 font-mono text-[11px] font-semibold text-foreground">

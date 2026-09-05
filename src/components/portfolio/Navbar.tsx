@@ -44,11 +44,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close the mobile menu and smoothly scroll to the target section.
-  // We wait 280 ms (slightly longer than the exit animation at 250 ms) so the
-  // overflow-hidden menu panel is fully collapsed before the scroll fires –
-  // otherwise the panel blocks the viewport calculation and the page doesn't
-  // move to the right position.
+
   const handleMobileNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     sectionId: string
