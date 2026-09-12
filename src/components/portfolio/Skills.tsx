@@ -134,7 +134,7 @@ export function Skills() {
                   <div className={`flex flex-col gap-10 ${i % 2 !== 0 && i !== columns.length - 1 ? 'mt-16' : ''}`}>
                     {col.nodes.map((node) => (
                       <div key={node.id} id={node.id} className="relative z-10 w-44">
-                        <div className="bento-card relative flex w-full items-center gap-4 rounded-xl px-5 py-3.5 cursor-default">
+                        <div className="bento-card skill-node relative flex w-full items-center gap-4 rounded-xl px-5 py-3.5 cursor-default">
                           <div className="flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300">
                             <node.icon className="h-5 w-5" style={{ color: node.color }} />
                           </div>

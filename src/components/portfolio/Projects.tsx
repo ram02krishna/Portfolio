@@ -108,7 +108,7 @@ export function Projects() {
                 key={p.title}
                 className="h-full"
               >
-                <div className="bento-card relative flex h-full flex-col rounded-3xl overflow-hidden">
+                <div className="bento-card project-card-hover relative flex h-full flex-col rounded-3xl overflow-hidden">
                   <div className="flex items-center justify-between border-b border-border/50 bg-secondary/50 px-5 py-3 backdrop-blur-md">
                     <div className="flex items-center gap-1.5">
                       <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]/80" />

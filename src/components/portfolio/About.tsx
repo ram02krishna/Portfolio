@@ -13,7 +13,7 @@ export function About() {
     <section id="about" className="relative px-4 py-6 sm:py-8 overflow-hidden">
       <div className="mx-auto max-w-6xl">
         <div className="reveal mb-6 text-center">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[color:var(--brand-cyan)]">// about</p>
+          <p className="section-label-ndot">// about</p>
           <h2 className="mt-2 text-4xl font-bold sm:text-5xl">
             A little bit <span className="text-gradient">about me.</span>
           </h2>
@@ -31,7 +31,7 @@ export function About() {
             transition={{ duration: 0.45 }}
           >
             <div className="flex flex-col items-center text-center">
-              <div className="relative mb-6 aspect-square w-full max-w-[300px] sm:max-w-[330px] overflow-hidden rounded-3xl border border-border/80">
+              <div className="relative mb-6 aspect-square w-full max-w-[300px] sm:max-w-[330px] overflow-hidden rounded-3xl border border-border/80 animate-float">
                 <img
                   src="/profile.png"
                   alt="Ram Krishna"
@@ -64,7 +64,7 @@ export function About() {
                   target={s.href.startsWith("http") ? "_blank" : undefined}
                   rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   aria-label={s.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-2xl border border-border/70 bg-secondary/50 text-foreground transition-opacity hover:opacity-80"
+                  className="social-icon-btn flex h-10 w-10 items-center justify-center rounded-2xl border border-border/70 bg-secondary/50 text-foreground hover:text-[color:var(--brand-cyan)] hover:border-[color:var(--brand-cyan)]/50"
                 >
                   <s.icon className="h-4 w-4" />
                 </a>
