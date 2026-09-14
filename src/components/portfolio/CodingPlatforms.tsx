@@ -25,12 +25,12 @@ const platforms = [
   {
     name: "LeetCode",
     handle: "ram_02_Krishna",
-    rating: "1657",
+    rating: "1725",
     badge: "Top ~15%",
     icon: SiLeetcode,
     href: "https://leetcode.com/u/ram_02_Krishna/",
     color: "#FFA116",
-    tagline: "475+ DSA problems solved",
+    tagline: "500+ DSA problems solved",
   },
   {
     name: "GitHub",

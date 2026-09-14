@@ -74,7 +74,7 @@ export function Hero() {
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">01</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>name</span> <span className="text-muted-foreground">=</span> <span style={{ color: "var(--code-string)" }}>"Ram Krishna"</span>;</span></div>
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">02</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>role</span> <span className="text-muted-foreground">=</span> <span style={{ color: "var(--code-string)" }}>"SDE, Backend & DevOps Engineer"</span>;</span></div>
                 <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">03</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>status</span> <span className="text-muted-foreground">=</span> <span style={{ color: "var(--code-string)" }}>"Writing code & building projects"</span>;</span></div>
-                <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">04</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>ratings</span> <span className="text-muted-foreground">=</span> {"{ "}<span style={{ color: "var(--code-property)" }}>codeforces</span>: <span style={{ color: "var(--code-number)" }}>1201</span>, <span style={{ color: "var(--code-property)" }}>leetcode</span>: <span style={{ color: "var(--code-number)" }}>1657</span> {"}"};</span></div>
+                <div className="flex gap-3 sm:gap-4"><span className="select-none text-muted-foreground/50">04</span><span><span style={{ color: "var(--code-keyword)" }}>const</span> <span style={{ color: "var(--code-variable)" }}>ratings</span> <span className="text-muted-foreground">=</span> {"{ "}<span style={{ color: "var(--code-property)" }}>codeforces</span>: <span style={{ color: "var(--code-number)" }}>1201</span>, <span style={{ color: "var(--code-property)" }}>leetcode</span>: <span style={{ color: "var(--code-number)" }}>1725</span> {"}"};</span></div>
               </code>
             </pre>
           </div>
@@ -89,7 +89,7 @@ export function Hero() {
           <div className="chip-interactive inline-flex items-center gap-2 rounded-full border border-border/70 bg-secondary/40 px-3.5 py-1.5 text-xs font-medium text-foreground backdrop-blur-md cursor-default">
             <SiLeetcode className="h-3.5 w-3.5 text-[#FFA116] shrink-0" />
             <span className="text-muted-foreground">LeetCode:</span>
-            <span className="font-semibold text-foreground">1657</span>
+            <span className="font-semibold text-foreground">1725</span>
           </div>
           <div className="chip-interactive inline-flex items-center gap-2 rounded-full border border-border/70 bg-secondary/40 px-3.5 py-1.5 text-xs font-medium text-foreground backdrop-blur-md cursor-default">
             <GraduationCap className="h-3.5 w-3.5 text-muted-foreground" />

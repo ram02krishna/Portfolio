@@ -1,5 +1,4 @@
-import { Mail, Code2 } from "lucide-react";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { Mail, Code2, Github, Linkedin, Twitter } from "lucide-react";
 const explore = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
@@ -10,9 +9,9 @@ const explore = [
 ];
 
 const socials = [
-  { icon: FaGithub, href: "https://github.com/ram02krishna", label: "GitHub" },
-  { icon: FaLinkedin, href: "https://www.linkedin.com/in/ram-krishna-419528287/", label: "LinkedIn" },
-  { icon: FaXTwitter, href: "https://x.com/krishnarammhd", label: "Twitter" },
+  { icon: Github, href: "https://github.com/ram02krishna", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/ram-krishna-419528287/", label: "LinkedIn" },
+  { icon: Twitter, href: "https://x.com/krishnarammhd", label: "Twitter" },
   { icon: Mail, href: "mailto:krishnarammhd@gmail.com", label: "Email" },
 ];
 
@@ -36,7 +35,7 @@ export function Footer() {
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Architecting resilient backends and building reliable DevOps pipelines with a focus on engineering excellence and scalable infrastructure.
             </p>
-            <div className="mt-6 flex items-center gap-2">
+            <div className="mt-6 flex items-center gap-3">
               {socials.map((s) => (
                 <a
                   key={s.label}
@@ -44,7 +43,7 @@ export function Footer() {
                   target={s.href.startsWith("http") ? "_blank" : undefined}
                   rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   aria-label={s.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-secondary/50 text-foreground transition-colors duration-200 hover:text-[color:var(--brand-violet)] hover:border-[color:var(--brand-violet)]/50"
+                  className="social-icon-btn flex h-10 w-10 items-center justify-center rounded-2xl border border-border/70 bg-secondary/50 text-foreground hover:text-[color:var(--brand-cyan)] hover:border-[color:var(--brand-cyan)]/50"
                 >
                   <s.icon className="h-4 w-4" />
                 </a>

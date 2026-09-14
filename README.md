@@ -1,36 +1,14 @@
-## Ram Krishna | Full Stack Developer Portfolio
+# Ram Krishna — Portfolio
 
-Welcome to the source code of my personal portfolio — a high-performance, immersive web experience built to showcase my professional journey, full-stack projects, and technical expertise.
+Welcome to my personal portfolio! Here you'll find everything about my journey as a software engineer — featuring my full-stack web applications, scalable backend systems, DevOps pipelines, competitive programming milestones, and ways to get in touch.
 
-The project features a **Dark Premium** aesthetic, built with a focus on fluid animations, modern CSS (OKLCH), and type-safe architecture.
+## Tech Stack
 
-## Technical Architecture
-
-### Frontend
-- **Framework:** [React 19](https://react.dev/) for the latest features and performance.
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) — utilizing the latest engine for lightning-fast builds and modern CSS features like native cascade layers and OKLCH color spaces.
-- **Animations:** 
-  - [Framer Motion](https://www.framer.com/motion/) for complex interactive components.
-  - Custom scroll-triggered reveals using `IntersectionObserver` and CSS transitions.
-  - View Transitions API support for smooth theme switching.
-- **UI Components:** [Shadcn UI](https://ui.shadcn.com/) components customized with a sleek, futuristic glassmorphism theme.
-- **Icons:** [Lucide React](https://lucide.dev/) for a consistent and crisp icon set.
-
-### Backend
-- **Server:** [Node.js](https://nodejs.org/) with [Express](https://expressjs.com/).
-- **API:** Simple and scalable REST endpoints for handling contact forms and other dynamic data.
-
-## Features
-- **Dynamic Hero Section:** Features a terminal-style code window and a typewriter effect showcasing various roles.
-- **Coding Ratings:** Integration of competitive programming stats from Codeforces and LeetCode.
-- **Immersive Background:** An animated, theme-aware background with floating orbs and grid overlays.
-- **Responsive Design:** Fully optimized for all device sizes with mobile-first layouts.
-- **Interactive Projects:** Hover-card effects and detailed project showcases.
-- **Performance:** Optimized asset loading, smooth scroll behavior, and lightweight builds.
+- **Frontend:** React 19, TypeScript, Tailwind CSS v4, Framer Motion, Lucide Icons
+- **Backend:** Node.js, Express
+- **Build Tool:** Vite
 
 ## Getting Started
-
-To run this project locally, ensure you have [Node.js](https://nodejs.org/) installed, then follow these steps:
 
 1. **Clone the repository:**
    ```bash
@@ -43,22 +21,20 @@ To run this project locally, ensure you have [Node.js](https://nodejs.org/) inst
    npm install
    ```
 
-3. **Launch the development server:**
+3. **Start the development server:**
    ```bash
    npm run dev
    ```
-   *This will concurrently start both the Vite frontend (port 5173) and the Express backend (port 5000).*
 
-## Project Structure
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
 
-- `src/`: The core frontend application.
-  - `components/portfolio/`: Feature-specific sections like Hero, About, Projects, etc.
-  - `components/ui/`: Reusable, low-level UI primitives.
-  - `hooks/`: Custom React hooks (e.g., `useReveal` for scroll animations).
-  - `styles.css`: Tailwind 4 configuration and global design system using OKLCH.
-- `server/`: Express backend source code.
-- `public/`: Static assets like images and PDFs.
+## Connect
 
----
-
-Thanks for checking out my work! If you have any questions or just want to connect, feel free to reach out via my [LinkedIn](https://www.linkedin.com/in/ram-krishna-419528287/) or [GitHub](https://github.com/ram02krishna).
+- **GitHub:** [@ram02krishna](https://github.com/ram02krishna)
+- **LinkedIn:** [Ram Krishna](https://www.linkedin.com/in/ram-krishna-419528287/)
+- **LeetCode:** [@ram_02_Krishna](https://leetcode.com/u/ram_02_Krishna/)
+- **Codeforces:** [@krishnarammhd](https://codeforces.com/profile/krishnarammhd)
+- **Email:** [krishnarammhd@gmail.com](mailto:krishnarammhd@gmail.com)
